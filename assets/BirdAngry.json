@@ -409,7 +409,7 @@
 },
 "Creaters/Red_1.png":
 {
-	"frame": {"x":351,"y":364,"w":46,"h":45},
+	"frame": {"x":351,"y":364,"w":45,"h":45},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":46,"h":45},
