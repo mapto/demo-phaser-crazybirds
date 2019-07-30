@@ -19,6 +19,8 @@ Three parallel and long-living branches are planned:
 * design - the specific changes, related to the reskinning of the game. This would most probably depend on tech changes.
 * master - as usually, the stable and culuminative end result of the development.
 
+Artwork and photography are taken exclusively from Wikipedia and other Wikimedia projects.
+
 Technologies
 ------------
 

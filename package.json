@@ -1,15 +1,15 @@
 {
-  "name": "CrazyBirds",
-  "version": "1.0.0",
-  "description": "",
-  "author": "baev <baev@nixsolutions.com>",
+  "name": "boykomet",
+  "version": "0.0.1",
+  "description": "https://github.com/mapto/boykomet",
+  "author": "mapto <martin@unriddle.it>",
   "main": "index.js",
   "scripts": {
     "dev": "webpack",
     "deploy": "webpack --config webpack.production.config.js",
     "test": "standard"
   },
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.14.0",
     "babel-loader": "^6.2.5",
