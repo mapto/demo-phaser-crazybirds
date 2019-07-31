@@ -409,6 +409,30 @@
 },
 "Creaters/Red_1.png":
 {
+	"frame": {"x":486,"y":4,"w":46,"h":45},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":46,"h":45},
+	"sourceSize": {"w":46,"h":45}
+},
+"Creaters/Red_1y.png":
+{
+	"frame": {"x":486,"y":50,"w":46,"h":45},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":46,"h":45},
+	"sourceSize": {"w":46,"h":45}
+},
+"Creaters/Red_1b.png":
+{
+	"frame": {"x":486,"y":97,"w":46,"h":45},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":46,"h":45},
+	"sourceSize": {"w":46,"h":45}
+},
+"Creaters/Red_1g.png":
+{
 	"frame": {"x":351,"y":364,"w":46,"h":45},
 	"rotated": false,
 	"trimmed": false,
