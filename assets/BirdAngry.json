@@ -468,7 +468,7 @@
 	"version": "1.0",
 	"image": "BirdAngry.png",
 	"format": "RGBA8888",
-	"size": {"w":484,"h":484},
+	"size": {"w":530,"h":484},
 	"scale": "1",
 	"smartupdate": "$TexturePacker:SmartUpdate:dd8f2435f3dabf4f3c4dd14a9f66d249:002451126d182f17858ff9ad094e7e37:a952316439d4c4fec5013ef153c231d3$"
 }
