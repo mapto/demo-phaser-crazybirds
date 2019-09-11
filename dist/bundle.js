@@ -15511,7 +15511,7 @@ function(t, e, i) {
                 }, n.Text.prototype.setShadow = function(t, e, i, o, n, s) {
                     return void 0 === t && (t = 0), void 0 === e && (e = 0), void 0 === i && (i = "rgba(0, 0, 0, 1)"), void 0 === o && (o = 0), void 0 === n && (n = !0), void 0 === s && (s = !0), this.style.shadowOffsetX = t, this.style.shadowOffsetY = e, this.style.shadowColor = i, this.style.shadowBlur = o, this.style.shadowStroke = n, this.style.shadowFill = s, this.dirty = !0, this
                 }, n.Text.prototype.setStyle = function(t, e) {
-                    void 0 === e && (e = !1), t = t || {}, t.font = t.font || "bold 20pt Arial", t.backgroundColor = t.backgroundColor || null, t.fill = t.fill || "black", t.align = t.align || "left", t.boundsAlignH = t.boundsAlignH || "left", t.boundsAlignV = t.boundsAlignV || "top", t.stroke = t.stroke || "black", t.strokeThickness = t.strokeThickness || 0, t.wordWrap = t.wordWrap || !1, t.wordWrapWidth = t.wordWrapWidth || 100, t.maxLines = t.maxLines || 0, t.shadowOffsetX = t.shadowOffsetX || 0, t.shadowOffsetY = t.shadowOffsetY || 0, t.shadowColor = t.shadowColor || "rgba(0,0,0,0)", t.shadowBlur = t.shadowBlur || 0, t.tabs = t.tabs || 0;
+                    void 0 === e && (e = !1), t = t || {}, t.font = t.font || "bold 20pt Ubuntu", t.backgroundColor = t.backgroundColor || null, t.fill = t.fill || "black", t.align = t.align || "left", t.boundsAlignH = t.boundsAlignH || "left", t.boundsAlignV = t.boundsAlignV || "top", t.stroke = t.stroke || "black", t.strokeThickness = t.strokeThickness || 0, t.wordWrap = t.wordWrap || !1, t.wordWrapWidth = t.wordWrapWidth || 100, t.maxLines = t.maxLines || 0, t.shadowOffsetX = t.shadowOffsetX || 0, t.shadowOffsetY = t.shadowOffsetY || 0, t.shadowColor = t.shadowColor || "rgba(0,0,0,0)", t.shadowBlur = t.shadowBlur || 0, t.tabs = t.tabs || 0;
                     var i = this.fontToComponents(t.font);
                     return t.fontStyle && (i.fontStyle = t.fontStyle), t.fontVariant && (i.fontVariant = t.fontVariant), t.fontWeight && (i.fontWeight = t.fontWeight), t.fontSize && ("number" == typeof t.fontSize && (t.fontSize = t.fontSize + "px"), i.fontSize = t.fontSize), this._fontComponents = i, t.font = this.componentsToFont(this._fontComponents), this.style = t, this.dirty = !0, e && this.updateText(), this
                 }, n.Text.prototype.updateText = function() {
@@ -15738,14 +15738,14 @@ function(t, e, i) {
                         return this.componentsToFont(this._fontComponents)
                     },
                     set: function(t) {
-                        t = t || "bold 20pt Arial", this._fontComponents = this.fontToComponents(t), this.updateFont(this._fontComponents)
+                        t = t || "bold 20pt Ubuntu", this._fontComponents = this.fontToComponents(t), this.updateFont(this._fontComponents)
                     }
                 }), Object.defineProperty(n.Text.prototype, "font", {
                     get: function() {
                         return this._fontComponents.fontFamily
                     },
                     set: function(t) {
-                        t = t || "Arial", t = t.trim(), /^(?:inherit|serif|sans-serif|cursive|fantasy|monospace)$/.exec(t) || /['",]/.exec(t) || (t = "'" + t + "'"), this._fontComponents.fontFamily = t, this.updateFont(this._fontComponents)
+                        t = t || "Ubuntu", t = t.trim(), /^(?:inherit|serif|sans-serif|cursive|fantasy|monospace)$/.exec(t) || /['",]/.exec(t) || (t = "'" + t + "'"), this._fontComponents.fontFamily = t, this.updateFont(this._fontComponents)
                     }
                 }), Object.defineProperty(n.Text.prototype, "fontSize", {
                     get: function() {
@@ -23038,29 +23038,37 @@ function(t, e) {
 
     t.exports = {
         preload: function() {
-            this.game.load.image("loadScreen", "./assets/load.png"),
+            // this.game.load.image("loadScreen", "./assets/load.png"),
+            this.game.load.image("tweet", "./assets/tweet.png"),
                 this.game.load.bitmapFont("bmtFont", "./assets/font/Font_angry_birds.png", "././assets/font/Font_angry_birds.xml")
         },
         create: function() {
-            this.game.loadScreen = this.game.add.sprite(0, 0, "loadScreen"),
+            this.game.loadScreen = this.game.add.sprite(102, 163, "tweet"),
                 this.game.load.onLoadStart.add(this.loadStart, this),
                 this.game.load.onFileComplete.add(this.fileComplete, this),
                 this.game.load.onLoadComplete.add(this.loadComplete, this),
-                this.game.bmpText = this.game.add.bitmapText(this.game.width / 2 - 60, this.game.height / 2 + 150, "bmtFont"),
-                this.game.bmpText.scale.set(2),
+                // this.game.bmpText = this.game.add.bitmapText(this.game.width / 2 - 60, this.game.height / 2 + 150, "bmtFont"),
+                // this.game.bmpText.scale.set(2),
+                this.game.bmpText = this.game.add.text(this.game.width / 2 + 200, this.game.height / 2 + 70, "0%", {
+                    // font: "Ubuntu",
+                    font: "Ubuntu",
+                    fontSize: "60px",
+                    fill: "#14171a",
+                    align: "center"
+                }),
                 this.game.bmpText.fixedToCamera = !0, setTimeout(function(t) {
                     t.start()
-                }, 100, this),
-                this.game.copyrightText = this.game.add.text(this.game.width / 2, this.game.height - 15, "Graphics by Rovio Entertainment Ltd.", {
-                    font: "Arial",
-                    fontSize: "12px",
+                }, 100, this)
+                this.game.copyrightText = this.game.add.text(this.game.width / 2, this.game.height - 50, "Работим по въпроса...", {
+                    font: "Ubuntu",
+                    fontSize: "24px",
                     fill: "#ffffff",
                     align: "center"
                 }),
                 this.game.copyrightText.anchor.setTo(.5)
         },
         loadStart: function() {
-            this.game.bmpText.setText("Loading ...")
+            this.game.bmpText.setText("0%")
         },
         fileComplete: function(t) {
             this.game.bmpText.setText(t + "%")
@@ -23072,8 +23080,9 @@ function(t, e) {
             this.game.load.text("level", "./assets/levels.json"),
                 this.game.load.atlasJSONHash("aBirds", "./assets/BirdAngry.png", "./assets/BirdAngry.json"),
                 this.game.load.atlasJSONHash("bang", "./assets/bang.png", "./assets/bang.json"),
-                this.game.load.atlasJSONHash("mapItems", "./assets/menu/map.png", "./assets/menu/map.json"),
+                // this.game.load.atlasJSONHash("mapItems", "./assets/menu/map.png", "./assets/menu/map.json"),
                 this.game.load.atlasJSONHash("popup", "./assets/popup/popup.png", "./assets/popup/popup.json"),
+                this.game.load.image("tweet", "./assets/tweet.png"),
                 this.game.load.image("background", "./assets/bg/background.png"),
                 this.game.load.image("foreground", "./assets/bg/foreground.png"),
                 this.game.load.image("grass", "./assets/bg/grass.png"),
@@ -23084,7 +23093,7 @@ function(t, e) {
                 this.game.load.image("bird_particle", "./assets/bird_particle.png"),
                 this.game.load.image("trajectory1", "./assets/trace_part1.png"),
                 this.game.load.image("trajectory2", "./assets/trace_part2.png"),
-                this.game.load.image("menuMap", "./assets/menu/mapBG.png"),
+                // this.game.load.image("menuMap", "./assets/load.png"),
                 this.game.load.image("popupBG", "./assets/popup/panel.png"),
                 this.game.load.audio("wood_destroyed", "./assets/audio/wood_destroyed.mp3"),
                 this.game.load.audio("wood_damage", "./assets/audio/wood_damage.mp3"),
@@ -23111,19 +23120,21 @@ function(t, e, i) {
     }
 
     function n(t) {
-        this.game.global.clickOnButton = !0, "big_button_yellow.png" === t.frameName ? (this.game.bgMusicMenu.stop(), this.game.global.levelSelect = t.parent.children.indexOf(t), this.game.state.start("play"), this.game.global.startMove = !1, this.game.global.moveCameraFlag = !1, this.game.global.clickOnButton = !1) : "big_button_grey.png" === t.frameName && (this.tweenButton = this.game.add.tween(t).to({
-            x: t.x + 6
-        }, 20, l["default"].Easing.Linear.None).to({
-            x: t.x - 5
-        }, 20, l["default"].Easing.Linear.None).to({
-            x: t.x + 4
-        }, 20, l["default"].Easing.Linear.None).to({
-            x: t.x - 3
-        }, 20, l["default"].Easing.Linear.None).to({
-            x: t.x + 2
-        }, 20, l["default"].Easing.Linear.None).to({
-            x: t.x
-        }, 20, l["default"].Easing.Linear.None).start())
+        this.game.global.clickOnButton = !0,
+        (this.game.bgMusicMenu.stop(), this.game.global.levelSelect = t.parent.children.indexOf(t), this.game.state.start("play"), this.game.global.startMove = !1, this.game.global.moveCameraFlag = !1, this.game.global.clickOnButton = !1)
+        // "big_button_yellow.png" === t.frameName ? (this.game.bgMusicMenu.stop(), this.game.global.levelSelect = t.parent.children.indexOf(t), this.game.state.start("play"), this.game.global.startMove = !1, this.game.global.moveCameraFlag = !1, this.game.global.clickOnButton = !1) : "big_button_grey.png" === t.frameName && (this.tweenButton = this.game.add.tween(t).to({
+        //     x: t.x + 6
+        // }, 20, l["default"].Easing.Linear.None).to({
+        //     x: t.x - 5
+        // }, 20, l["default"].Easing.Linear.None).to({
+        //     x: t.x + 4
+        // }, 20, l["default"].Easing.Linear.None).to({
+        //     x: t.x - 3
+        // }, 20, l["default"].Easing.Linear.None).to({
+        //     x: t.x + 2
+        // }, 20, l["default"].Easing.Linear.None).to({
+        //     x: t.x
+        // }, 20, l["default"].Easing.Linear.None).start())
     }
 
     function s() {
@@ -23147,20 +23158,74 @@ function(t, e, i) {
     t.exports = {
         create: function() {
             var t = this;
-            this.game.world.setBounds(0, 0, 2682, 768), this.menuMap = this.game.add.sprite(0, 0, "menuMap"), this.buttonLevel0 = this.game.add.sprite(163, 315, "mapItems", "big_button_yellow.png"), this.buttonLevel1 = this.game.add.sprite(540, 390, "mapItems", "big_button_grey.png"), this.buttonLevel2 = this.game.add.sprite(920, 553, "mapItems", "big_button_grey.png"), this.buttonLevel3 = this.game.add.sprite(1261, 406, "mapItems", "big_button_grey.png"), this.buttonLevel4 = this.game.add.sprite(1520, 158, "mapItems", "big_button_grey.png"), this.buttonLevel5 = this.game.add.sprite(1847, 73, "mapItems", "big_button_grey.png"), this.buttonLevel6 = this.game.add.sprite(2209, 260, "mapItems", "big_button_grey.png"), this.markerLevel0 = this.game.add.sprite(332, 384, "mapItems", "small_button_grey.png"), this.markerLevel1 = this.game.add.sprite(443, 399, "mapItems", "small_button_grey.png"), this.markerLevel2 = this.game.add.sprite(704, 552, "mapItems", "small_button_grey.png"), this.markerLevel3 = this.game.add.sprite(815, 599, "mapItems", "small_button_grey.png"), this.markerLevel4 = this.game.add.sprite(1081, 594, "mapItems", "small_button_grey.png"), this.markerLevel5 = this.game.add.sprite(1189, 545, "mapItems", "small_button_grey.png"), this.markerLevel6 = this.game.add.sprite(1395, 403, "mapItems", "small_button_grey.png"), this.markerLevel7 = this.game.add.sprite(1471, 328, "mapItems", "small_button_grey.png"), this.markerLevel8 = this.game.add.sprite(1657, 161, "mapItems", "small_button_grey.png"), this.markerLevel9 = this.game.add.sprite(1751, 139, "mapItems", "small_button_grey.png"), this.markerLevel10 = this.game.add.sprite(2026, 183, "mapItems", "small_button_grey.png"), this.markerLevel11 = this.game.add.sprite(2125, 249, "mapItems", "small_button_grey.png"), this.markerGroup = this.game.add.group(), this.markerGroup.add(this.markerLevel0), this.markerGroup.add(this.markerLevel1), this.markerGroup.add(this.markerLevel2), this.markerGroup.add(this.markerLevel3), this.markerGroup.add(this.markerLevel4), this.markerGroup.add(this.markerLevel5), this.markerGroup.add(this.markerLevel6), this.markerGroup.add(this.markerLevel7), this.markerGroup.add(this.markerLevel8), this.markerGroup.add(this.markerLevel9), this.markerGroup.add(this.markerLevel10), this.markerGroup.add(this.markerLevel11), this.buttonGroup = this.game.add.group(), this.buttonGroup.add(this.buttonLevel0), this.buttonGroup.add(this.buttonLevel1), this.buttonGroup.add(this.buttonLevel2), this.buttonGroup.add(this.buttonLevel3), this.buttonGroup.add(this.buttonLevel4), this.buttonGroup.add(this.buttonLevel5), this.buttonGroup.add(this.buttonLevel6), this.buttonGroup.children.forEach(function(e, i) {
-                e.inputEnabled = !0, e.input.useHandCursor = !0, e.events.onInputDown.add(n, t), t.game.levelIndex = t.game.add.bitmapText(e.x + 50, e.y + 70, "bmtLevel"), t.game.levelIndex.scale.set(2), t.game.levelIndex.anchor.set(.5), t.game.levelIndex.setText("" + (i + 1))
-            }, this);
-            for (var e = 0; e < 7; e++)
-                if (0 === this.game.global.levels[e]) {
-                    this.buttonGroup.children[e].frameName = "big_button_yellow.png";
-                    for (var i = 2 * e - 1; i >= 0; i--) this.markerGroup.children[i].frameName = "small_button_yellow.png"
-                } else this.game.global.levels[e] > 0 && (this.buttonGroup.children[e].frameName = this.game.global.levels[e] + ".png");
-            this.game.bgMusicMenu = this.game.add.audio("bgAudio"), this.game.bgMusicMenu.volume = .2, this.game.bgMusicMenu.play(), this.game.input.onDown.add(s, this), this.callbackIDMenu = this.game.input.addMoveCallback(r, this), this.game.input.onUp.add(a, this), this.game.copyrightText = this.game.add.text(this.game.width / 2, this.game.height - 15, "Graphics by Rovio Entertainment Ltd.", {
-                font: "Arial",
-                fontSize: "12px",
+            this.game.world.setBounds(0, 0, 1024, 768),
+            // this.menuMap = this.game.add.sprite(102, 163, "tweet"),
+            this.buttonLevel0 = this.game.add.sprite(102, 163, "tweet"),
+            // this.buttonLevel0 = this.game.add.sprite(0, 0, "mapItems", "big_button_yellow.png"),
+            // this.buttonLevel0 = this.game.add.sprite(163, 315, "mapItems", "big_button_yellow.png"),
+            // this.buttonLevel1 = this.game.add.sprite(540, 390, "mapItems", "big_button_grey.png"),
+            // this.buttonLevel2 = this.game.add.sprite(920, 553, "mapItems", "big_button_grey.png"),
+            // this.buttonLevel3 = this.game.add.sprite(1261, 406, "mapItems", "big_button_grey.png"),
+            // this.buttonLevel4 = this.game.add.sprite(1520, 158, "mapItems", "big_button_grey.png"),
+            // this.buttonLevel5 = this.game.add.sprite(1847, 73, "mapItems", "big_button_grey.png"),
+            // this.buttonLevel6 = this.game.add.sprite(2209, 260, "mapItems", "big_button_grey.png"),
+            // this.markerLevel0 = this.game.add.sprite(332, 384, "mapItems", "small_button_grey.png"),
+            // this.markerLevel1 = this.game.add.sprite(443, 399, "mapItems", "small_button_grey.png"),
+            // this.markerLevel2 = this.game.add.sprite(704, 552, "mapItems", "small_button_grey.png"),
+            // this.markerLevel3 = this.game.add.sprite(815, 599, "mapItems", "small_button_grey.png"),
+            // this.markerLevel4 = this.game.add.sprite(1081, 594, "mapItems", "small_button_grey.png"),
+            // this.markerLevel5 = this.game.add.sprite(1189, 545, "mapItems", "small_button_grey.png"),
+            // this.markerLevel6 = this.game.add.sprite(1395, 403, "mapItems", "small_button_grey.png"),
+            // this.markerLevel7 = this.game.add.sprite(1471, 328, "mapItems", "small_button_grey.png"),
+            // this.markerLevel8 = this.game.add.sprite(1657, 161, "mapItems", "small_button_grey.png"),
+            // this.markerLevel9 = this.game.add.sprite(1751, 139, "mapItems", "small_button_grey.png"),
+            // this.markerLevel10 = this.game.add.sprite(2026, 183, "mapItems", "small_button_grey.png"),
+            // this.markerLevel11 = this.game.add.sprite(2125, 249, "mapItems", "small_button_grey.png"),
+            // this.markerGroup = this.game.add.group(),
+            // this.markerGroup.add(this.markerLevel0),
+            // this.markerGroup.add(this.markerLevel1),
+            // this.markerGroup.add(this.markerLevel2),
+            // this.markerGroup.add(this.markerLevel3),
+            // this.markerGroup.add(this.markerLevel4),
+            // this.markerGroup.add(this.markerLevel5),
+            // this.markerGroup.add(this.markerLevel6),
+            // this.markerGroup.add(this.markerLevel7),
+            // this.markerGroup.add(this.markerLevel8),
+            // this.markerGroup.add(this.markerLevel9),
+            // this.markerGroup.add(this.markerLevel10),
+            // this.markerGroup.add(this.markerLevel11),
+            // this.buttonGroup = this.game.add.group(),
+            // this.buttonGroup.add(this.buttonLevel0),
+            // this.buttonGroup.add(this.buttonLevel1),
+            // this.buttonGroup.add(this.buttonLevel2),
+            // this.buttonGroup.add(this.buttonLevel3),
+            // this.buttonGroup.add(this.buttonLevel4),
+            // this.buttonGroup.add(this.buttonLevel5),
+            // this.buttonGroup.add(this.buttonLevel6),
+            this.buttonLevel0.inputEnabled = !0,
+            this.buttonLevel0.input.useHandCursor = !0,
+            this.buttonLevel0.events.onInputDown.add(n, t),
+            // this.buttonGroup.children.forEach(function(e, i) {
+            //     e.inputEnabled = !0, e.input.useHandCursor = !0, e.events.onInputDown.add(n, t)
+            //     // t.game.levelIndex = t.game.add.bitmapText(e.x + 50, e.y + 70, "bmtLevel"),
+            //     // t.game.levelIndex.scale.set(2), t.game.levelIndex.anchor.set(.5),
+            //     // t.game.levelIndex.setText("" + (i + 1))
+            // }, this);
+            // for (var e = 0; e < 1; e++)
+            //     if (0 === this.game.global.levels[e]) {
+            //         this.buttonGroup.children[e].frameName = "big_button_yellow.png";
+            //         for (var i = 2 * e - 1; i >= 0; i--) this.markerGroup.children[i].frameName = "small_button_yellow.png"
+            //     } else this.game.global.levels[e] > 0 && (this.buttonGroup.children[e].frameName = this.game.global.levels[e] + ".png");
+            this.game.bgMusicMenu = this.game.add.audio("bgAudio"), this.game.bgMusicMenu.volume = .2, this.game.bgMusicMenu.play(), this.game.input.onDown.add(s, this), this.callbackIDMenu = this.game.input.addMoveCallback(r, this), this.game.input.onUp.add(a, this)
+            this.game.copyrightText = this.game.add.text(this.game.width / 2, this.game.height - 50, "Направихме бойкомет!", {
+                font: "Ubuntu",
+                fontSize: "24px",
                 fill: "#ffffff",
                 align: "center"
-            }), this.game.copyrightText.anchor.setTo(.5)
+            }), this.game.copyrightText.anchor.setTo(.5),
+            this.game.copyrightText.inputEnabled = !0,
+            this.game.copyrightText.input.useHandCursor = !0,
+            this.game.copyrightText.events.onInputDown.add(n, t)
         }
     }
 },
@@ -23420,7 +23485,7 @@ function(module, exports, __webpack_require__) {
                     x: 0
                 }, 500, _phaser2["default"].Easing.Linear.None, !0)
             }, 3e3, this), console.log(this.game), this.game.copyrightText = this.game.add.text(this.game.width / 2, this.game.height - 15, "Graphics by Rovio Entertainment Ltd.", {
-                font: "Arial",
+                font: "Ubuntu",
                 fontSize: "12px",
                 fill: "#ffffff",
                 align: "center"
@@ -30194,7 +30259,7 @@ function(t, e, i) {
             this.menuMap = this.game.add.sprite(0, 0, "popupBG"), this.menuPopup = this.game.add.sprite(this.game.width / 2 - 100 - 30, 450, "popup", "menu_button.png"), this.menuPopup.inputEnabled = !0, this.menuPopup.input.useHandCursor = !0, this.menuPopup.events.onInputDown.add(n, this), this.reloadPopup = this.game.add.sprite(this.game.width / 2 - 30, 450, "popup", "reload_button.png"), this.reloadPopup.inputEnabled = !0, this.reloadPopup.input.useHandCursor = !0, this.reloadPopup.events.onInputDown.add(s, this), this.forwardPopup = this.game.add.sprite(this.game.width / 2 + 100 - 30, 450, "popup", "forward_button.png"), this.forwardPopup.inputEnabled = !0, this.forwardPopup.input.useHandCursor = !0, this.forwardPopup.events.onInputDown.add(r, this), this.game.scoreTextWin = this.game.add.bitmapText(this.game.width / 2, 350, "bmtFont"), this.game.scoreTextWin.fixedToCamera = !0, this.game.scoreTextWin.scale.set(2), this.game.scoreTextWin.anchor.set(.5), this.winGroupe = this.add.group(), this.winGroupe.add(this.menuMap), this.winGroupe.add(this.menuPopup), this.winGroupe.add(this.reloadPopup), this.winGroupe.add(this.forwardPopup), this.winGroupe.add(this.game.scoreTextWin), this.winGroupe.alpha = 0, this.game.add.tween(this.winGroupe).to({
                 alpha: 1
             }, 500, h["default"].Easing.Quadratic.Out, !0), this.game.global.score >= 1e3 & this.game.global.score <= 1500 ? this.game.global.star = 1 : this.game.global.score > 1500 && this.game.global.score <= 3e3 ? this.game.global.star = 2 : this.game.global.score > 3e3 ? this.game.global.star = 3 : this.game.global.star = 0, this.game.global.star > 0 ? (this.starPopup = this.game.add.sprite(this.game.width / 2 - 117, 230, "popup", this.game.global.star + ".png"), this.game.scoreTextWin.setText("" + this.game.global.score), this.game.global.levels.splice(this.game.global.currentLevel, 1, this.game.global.star), this.game.global.currentLevel += 1, this.game.global.levels.splice(this.game.global.currentLevel, 1, 0)) : (this.game.scoreTextWin.setText("Game Over"), this.forwardPopup.visible = !1), this.game.copyrightText = this.game.add.text(this.game.width / 2, this.game.height - 15, "Graphics by Rovio Entertainment Ltd.", {
-                font: "Arial",
+                font: "Ubuntu",
                 fontSize: "12px",
                 fill: "#ffffff",
                 align: "center"
