@@ -5250,7 +5250,7 @@ function(t, e, i) {
         color: "white",
         trajectory: !1,
         trajectoryArr: [],
-        currentLevel: 0,
+        currentLevel: 6,
         firePos: {
             x: 210,
             y: 498
@@ -23367,6 +23367,8 @@ function(module, exports, __webpack_require__) {
                 this.line2 = this.game.add.bitmapData(320, 800);
             var targetGroup = this.add.group(),
                 createLevel = eval("this.levelData.level" + this.game.global.currentLevel);
+                console.log(this.game.global.currentLevel);
+                console.log(createLevel);
             createLevel.forEach(function(t, e) {
                     var i = e;
                     i = _this2.game.add.sprite(t.x, t.y, "aBirds", t.name),
@@ -23414,7 +23416,8 @@ function(module, exports, __webpack_require__) {
                 t.game.global.shutFlag = !0, t.game.add.tween(t.game.camera).to({
                     x: 0
                 }, 500, _phaser2["default"].Easing.Linear.None, !0)
-            }, 3e3, this), console.log(this.game), this.game.copyrightText = this.game.add.text(this.game.width / 2, this.game.height - 15, "Graphics by Rovio Entertainment Ltd.", {
+            }, 3e3, this),
+            this.game.copyrightText = this.game.add.text(this.game.width / 2, this.game.height - 15, "Graphics by Rovio Entertainment Ltd.", {
                 font: "Arial",
                 fontSize: "12px",
                 fill: "#ffffff",
@@ -30172,28 +30175,65 @@ function(t, e, i) {
     }
 
     function n() {
+        console.log("n");
         this.game.global.flag = !1, this.game.global.resetbirdFlag = !1, this.game.global.gameOverFlag = !0, this.game.global.startMove = !1, this.game.global.shutFlag = !0, this.game.global.targetFlag = !0, this.game.global.groundFlag = !1, this.game.global.destroy = !1, this.game.global.moveCameraFlag = !1, this.game.global.touchElemGround = !1, this.game.global.score = 0, this.game.global.killedPigs = 0, this.game.global.pigs = 0, this.game.global.bungee = null, this.game.global.color = "white", this.game.global.trajectory = !1, this.game.global.trajectoryArr = [], this.game.global.clickOnButton = !1, this.game.state.start("menu", !0, !1)
     }
 
     function s() {
+        console.log("s");
         this.game.global.flag = !1, this.game.global.resetbirdFlag = !1, this.game.global.gameOverFlag = !0, this.game.global.startMove = !1, this.game.global.shutFlag = !0, this.game.global.targetFlag = !0, this.game.global.groundFlag = !1, this.game.global.destroy = !1, this.game.global.moveCameraFlag = !1, this.game.global.touchElemGround = !1, this.game.global.score = 0, this.game.global.killedPigs = 0, this.game.global.pigs = 0, this.game.global.bungee = null, this.game.global.color = "white", this.game.global.trajectory = !1, this.game.global.trajectoryArr = [], this.game.global.clickOnButton = !1, this.game.global.currentLevel > 0 && (this.game.global.currentLevel -= 1), this.game.state.start("play", !0, !1)
     }
 
     function r() {
+        console.log("r");
         this.game.global.flag = !1, this.game.global.resetbirdFlag = !1, this.game.global.gameOverFlag = !0, this.game.global.startMove = !1, this.game.global.shutFlag = !0, this.game.global.targetFlag = !0, this.game.global.groundFlag = !1, this.game.global.destroy = !1, this.game.global.moveCameraFlag = !1, this.game.global.touchElemGround = !1, this.game.global.score = 0, this.game.global.killedPigs = 0, this.game.global.pigs = 0, this.game.global.bungee = null, this.game.global.color = "white", this.game.global.trajectory = !1, this.game.global.trajectoryArr = [], this.game.global.clickOnButton = !1, this.game.state.start("play", !0, !1)
     }
     var a = i(303),
         h = o(a);
     t.exports = {
         create: function() {
-            this.menuMap = this.game.add.sprite(0, 0, "popupBG"), this.menuPopup = this.game.add.sprite(this.game.width / 2 - 100 - 30, 450, "popup", "menu_button.png"), this.menuPopup.inputEnabled = !0, this.menuPopup.input.useHandCursor = !0, this.menuPopup.events.onInputDown.add(n, this), this.reloadPopup = this.game.add.sprite(this.game.width / 2 - 30, 450, "popup", "reload_button.png"), this.reloadPopup.inputEnabled = !0, this.reloadPopup.input.useHandCursor = !0, this.reloadPopup.events.onInputDown.add(s, this), this.forwardPopup = this.game.add.sprite(this.game.width / 2 + 100 - 30, 450, "popup", "forward_button.png"), this.forwardPopup.inputEnabled = !0, this.forwardPopup.input.useHandCursor = !0, this.forwardPopup.events.onInputDown.add(r, this), this.game.scoreTextWin = this.game.add.bitmapText(this.game.width / 2, 350, "bmtFont"), this.game.scoreTextWin.fixedToCamera = !0, this.game.scoreTextWin.scale.set(2), this.game.scoreTextWin.anchor.set(.5), this.winGroupe = this.add.group(), this.winGroupe.add(this.menuMap), this.winGroupe.add(this.menuPopup), this.winGroupe.add(this.reloadPopup), this.winGroupe.add(this.forwardPopup), this.winGroupe.add(this.game.scoreTextWin), this.winGroupe.alpha = 0, this.game.add.tween(this.winGroupe).to({
+            this.menuMap = this.game.add.sprite(0, 0, "popupBG"),
+            this.menuPopup = this.game.add.sprite(this.game.width / 2 - 100 - 30, 450, "popup", "menu_button.png"),
+            this.menuPopup.inputEnabled = !0,
+            this.menuPopup.input.useHandCursor = !0,
+            this.menuPopup.events.onInputDown.add(n, this),
+            this.reloadPopup = this.game.add.sprite(this.game.width / 2 - 30, 450, "popup", "reload_button.png"),
+            this.reloadPopup.inputEnabled = !0,
+            this.reloadPopup.input.useHandCursor = !0,
+            this.reloadPopup.events.onInputDown.add(s, this),
+            this.forwardPopup = this.game.add.sprite(this.game.width / 2 + 100 - 30, 450, "popup", "forward_button.png"),
+            this.forwardPopup.inputEnabled = !0,
+            this.forwardPopup.input.useHandCursor = !0,
+            this.forwardPopup.events.onInputDown.add(r, this),
+            this.game.scoreTextWin = this.game.add.bitmapText(this.game.width / 2, 350, "bmtFont"),
+            this.game.scoreTextWin.fixedToCamera = !0,
+            this.game.scoreTextWin.scale.set(2),
+            this.game.scoreTextWin.anchor.set(0.5),
+            this.winGroupe = this.add.group(),
+            this.winGroupe.add(this.menuMap),
+            this.winGroupe.add(this.menuPopup),
+            this.winGroupe.add(this.reloadPopup),
+            this.winGroupe.add(this.forwardPopup),
+            this.winGroupe.add(this.game.scoreTextWin),
+            this.winGroupe.alpha = 0,
+            this.game.add.tween(this.winGroupe).to({
                 alpha: 1
-            }, 500, h["default"].Easing.Quadratic.Out, !0), this.game.global.score >= 1e3 & this.game.global.score <= 1500 ? this.game.global.star = 1 : this.game.global.score > 1500 && this.game.global.score <= 3e3 ? this.game.global.star = 2 : this.game.global.score > 3e3 ? this.game.global.star = 3 : this.game.global.star = 0, this.game.global.star > 0 ? (this.starPopup = this.game.add.sprite(this.game.width / 2 - 117, 230, "popup", this.game.global.star + ".png"), this.game.scoreTextWin.setText("" + this.game.global.score), this.game.global.levels.splice(this.game.global.currentLevel, 1, this.game.global.star), this.game.global.currentLevel += 1, this.game.global.levels.splice(this.game.global.currentLevel, 1, 0)) : (this.game.scoreTextWin.setText("Game Over"), this.forwardPopup.visible = !1), this.game.copyrightText = this.game.add.text(this.game.width / 2, this.game.height - 15, "Graphics by Rovio Entertainment Ltd.", {
-                font: "Arial",
+            }, 500, h["default"].Easing.Quadratic.Out, !0),
+            this.game.global.score >= 1e3 & this.game.global.score <= 1500 ? this.game.global.star = 1 : this.game.global.score > 1500 && this.game.global.score <= 3e3 ? this.game.global.star = 2 : this.game.global.score > 3e3 ? this.game.global.star = 3 : this.game.global.star = 0;
+            console.log(this.game.global.star);
+            this.game.global.star > 0 ? (
+                this.starPopup = this.game.add.sprite(this.game.width / 2 - 117, 230, "popup", this.game.global.star + ".png"),
+                this.game.scoreTextWin.setText("" + this.game.global.score),
+                this.game.global.levels.splice(this.game.global.currentLevel, 1, this.game.global.star),
+                this.game.global.currentLevel += 1,
+                this.game.global.levels.splice(this.game.global.currentLevel, 1, 0)
+            ) : (this.game.scoreTextWin.setText("Game Over"), this.forwardPopup.visible = !1),
+            this.game.copyrightText = this.game.add.text(this.game.width / 2, this.game.height - 15, "Graphics by Rovio Entertainment Ltd.", {
+                font: "Ubuntu",
                 fontSize: "12px",
                 fill: "#ffffff",
                 align: "center"
-            }), this.game.copyrightText.anchor.setTo(.5)
+            }), this.game.copyrightText.anchor.setTo(0.5)
         }
     }
 }
