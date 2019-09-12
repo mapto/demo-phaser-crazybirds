@@ -23039,28 +23039,33 @@ function(t, e) {
     t.exports = {
         preload: function() {
             this.game.load.image("loadScreen", "./assets/load.png"),
+            this.game.load.image("tweet", "./assets/tweet.png"),
                 this.game.load.bitmapFont("bmtFont", "./assets/font/Font_angry_birds.png", "././assets/font/Font_angry_birds.xml")
         },
         create: function() {
-            this.game.loadScreen = this.game.add.sprite(0, 0, "loadScreen"),
+            this.game.loadScreen = this.game.add.sprite(102, 163, "tweet"),
                 this.game.load.onLoadStart.add(this.loadStart, this),
                 this.game.load.onFileComplete.add(this.fileComplete, this),
                 this.game.load.onLoadComplete.add(this.loadComplete, this),
-                this.game.bmpText = this.game.add.bitmapText(this.game.width / 2 - 60, this.game.height / 2 + 150, "bmtFont"),
-                this.game.bmpText.scale.set(2),
+                this.game.bmpText = this.game.add.text(this.game.width / 2 + 200, this.game.height / 2 + 70, "0%", {
+                    font: "Ubuntu",
+                    fontSize: "60px",
+                    fill: "#14171a",
+                    align: "center"
+                }),
                 this.game.bmpText.fixedToCamera = !0, setTimeout(function(t) {
                     t.start()
-                }, 100, this),
-                this.game.copyrightText = this.game.add.text(this.game.width / 2, this.game.height - 15, "Graphics by Rovio Entertainment Ltd.", {
-                    font: "Arial",
-                    fontSize: "12px",
+                }, 100, this)
+                this.game.copyrightText = this.game.add.text(this.game.width / 2, this.game.height - 50, "Работим по въпроса...", {
+                    font: "Ubuntu",
+                    fontSize: "24px",
                     fill: "#ffffff",
                     align: "center"
                 }),
                 this.game.copyrightText.anchor.setTo(.5)
         },
         loadStart: function() {
-            this.game.bmpText.setText("Loading ...")
+            this.game.bmpText.setText("0%")
         },
         fileComplete: function(t) {
             this.game.bmpText.setText(t + "%")
@@ -23111,19 +23116,8 @@ function(t, e, i) {
     }
 
     function n(t) {
-        this.game.global.clickOnButton = !0, "big_button_yellow.png" === t.frameName ? (this.game.bgMusicMenu.stop(), this.game.global.levelSelect = t.parent.children.indexOf(t), this.game.state.start("play"), this.game.global.startMove = !1, this.game.global.moveCameraFlag = !1, this.game.global.clickOnButton = !1) : "big_button_grey.png" === t.frameName && (this.tweenButton = this.game.add.tween(t).to({
-            x: t.x + 6
-        }, 20, l["default"].Easing.Linear.None).to({
-            x: t.x - 5
-        }, 20, l["default"].Easing.Linear.None).to({
-            x: t.x + 4
-        }, 20, l["default"].Easing.Linear.None).to({
-            x: t.x - 3
-        }, 20, l["default"].Easing.Linear.None).to({
-            x: t.x + 2
-        }, 20, l["default"].Easing.Linear.None).to({
-            x: t.x
-        }, 20, l["default"].Easing.Linear.None).start())
+        this.game.global.clickOnButton = !0,
+        (this.game.bgMusicMenu.stop(), this.game.global.levelSelect = t.parent.children.indexOf(t), this.game.state.start("play"), this.game.global.startMove = !1, this.game.global.moveCameraFlag = !1, this.game.global.clickOnButton = !1)
     }
 
     function s() {
@@ -23147,20 +23141,21 @@ function(t, e, i) {
     t.exports = {
         create: function() {
             var t = this;
-            this.game.world.setBounds(0, 0, 2682, 768), this.menuMap = this.game.add.sprite(0, 0, "menuMap"), this.buttonLevel0 = this.game.add.sprite(163, 315, "mapItems", "big_button_yellow.png"), this.buttonLevel1 = this.game.add.sprite(540, 390, "mapItems", "big_button_grey.png"), this.buttonLevel2 = this.game.add.sprite(920, 553, "mapItems", "big_button_grey.png"), this.buttonLevel3 = this.game.add.sprite(1261, 406, "mapItems", "big_button_grey.png"), this.buttonLevel4 = this.game.add.sprite(1520, 158, "mapItems", "big_button_grey.png"), this.buttonLevel5 = this.game.add.sprite(1847, 73, "mapItems", "big_button_grey.png"), this.buttonLevel6 = this.game.add.sprite(2209, 260, "mapItems", "big_button_grey.png"), this.markerLevel0 = this.game.add.sprite(332, 384, "mapItems", "small_button_grey.png"), this.markerLevel1 = this.game.add.sprite(443, 399, "mapItems", "small_button_grey.png"), this.markerLevel2 = this.game.add.sprite(704, 552, "mapItems", "small_button_grey.png"), this.markerLevel3 = this.game.add.sprite(815, 599, "mapItems", "small_button_grey.png"), this.markerLevel4 = this.game.add.sprite(1081, 594, "mapItems", "small_button_grey.png"), this.markerLevel5 = this.game.add.sprite(1189, 545, "mapItems", "small_button_grey.png"), this.markerLevel6 = this.game.add.sprite(1395, 403, "mapItems", "small_button_grey.png"), this.markerLevel7 = this.game.add.sprite(1471, 328, "mapItems", "small_button_grey.png"), this.markerLevel8 = this.game.add.sprite(1657, 161, "mapItems", "small_button_grey.png"), this.markerLevel9 = this.game.add.sprite(1751, 139, "mapItems", "small_button_grey.png"), this.markerLevel10 = this.game.add.sprite(2026, 183, "mapItems", "small_button_grey.png"), this.markerLevel11 = this.game.add.sprite(2125, 249, "mapItems", "small_button_grey.png"), this.markerGroup = this.game.add.group(), this.markerGroup.add(this.markerLevel0), this.markerGroup.add(this.markerLevel1), this.markerGroup.add(this.markerLevel2), this.markerGroup.add(this.markerLevel3), this.markerGroup.add(this.markerLevel4), this.markerGroup.add(this.markerLevel5), this.markerGroup.add(this.markerLevel6), this.markerGroup.add(this.markerLevel7), this.markerGroup.add(this.markerLevel8), this.markerGroup.add(this.markerLevel9), this.markerGroup.add(this.markerLevel10), this.markerGroup.add(this.markerLevel11), this.buttonGroup = this.game.add.group(), this.buttonGroup.add(this.buttonLevel0), this.buttonGroup.add(this.buttonLevel1), this.buttonGroup.add(this.buttonLevel2), this.buttonGroup.add(this.buttonLevel3), this.buttonGroup.add(this.buttonLevel4), this.buttonGroup.add(this.buttonLevel5), this.buttonGroup.add(this.buttonLevel6), this.buttonGroup.children.forEach(function(e, i) {
-                e.inputEnabled = !0, e.input.useHandCursor = !0, e.events.onInputDown.add(n, t), t.game.levelIndex = t.game.add.bitmapText(e.x + 50, e.y + 70, "bmtLevel"), t.game.levelIndex.scale.set(2), t.game.levelIndex.anchor.set(.5), t.game.levelIndex.setText("" + (i + 1))
-            }, this);
-            for (var e = 0; e < 7; e++)
-                if (0 === this.game.global.levels[e]) {
-                    this.buttonGroup.children[e].frameName = "big_button_yellow.png";
-                    for (var i = 2 * e - 1; i >= 0; i--) this.markerGroup.children[i].frameName = "small_button_yellow.png"
-                } else this.game.global.levels[e] > 0 && (this.buttonGroup.children[e].frameName = this.game.global.levels[e] + ".png");
-            this.game.bgMusicMenu = this.game.add.audio("bgAudio"), this.game.bgMusicMenu.volume = .2, this.game.bgMusicMenu.play(), this.game.input.onDown.add(s, this), this.callbackIDMenu = this.game.input.addMoveCallback(r, this), this.game.input.onUp.add(a, this), this.game.copyrightText = this.game.add.text(this.game.width / 2, this.game.height - 15, "Graphics by Rovio Entertainment Ltd.", {
-                font: "Arial",
-                fontSize: "12px",
+            this.game.world.setBounds(0, 0, 1024, 768),
+            this.buttonLevel0 = this.game.add.sprite(102, 163, "tweet"),
+            this.buttonLevel0.inputEnabled = !0,
+            this.buttonLevel0.input.useHandCursor = !0,
+            this.buttonLevel0.events.onInputDown.add(n, t),
+            this.game.bgMusicMenu = this.game.add.audio("bgAudio"), this.game.bgMusicMenu.volume = .2, this.game.bgMusicMenu.play(), this.game.input.onDown.add(s, this), this.callbackIDMenu = this.game.input.addMoveCallback(r, this), this.game.input.onUp.add(a, this),
+            this.game.copyrightText = this.game.add.text(this.game.width / 2, this.game.height - 50, "Направихме бойкомет!", {
+                font: "Ubuntu",
+                fontSize: "24px",
                 fill: "#ffffff",
                 align: "center"
-            }), this.game.copyrightText.anchor.setTo(.5)
+            }), this.game.copyrightText.anchor.setTo(.5),
+            this.game.copyrightText.inputEnabled = !0,
+            this.game.copyrightText.input.useHandCursor = !0,
+            this.game.copyrightText.events.onInputDown.add(n, t)
         }
     }
 },
