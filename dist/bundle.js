@@ -23365,64 +23365,64 @@ function(module, exports, __webpack_require__) {
                 this.bird4 = this.game.add.sprite(0, this.game.height - 140, "aBirds", "Creaters/Red_1.png"),
                 this.bird5 = this.game.add.sprite(this.game.global.firePos.x, this.game.global.firePos.y, "aBirds", "Creaters/Red_1.png"),
                 this.line2 = this.game.add.bitmapData(320, 800);
-            var targetGroup = this.add.group(),
-                createLevel = eval("this.levelData.level" + this.game.global.currentLevel);
-                console.log(this.game.global.currentLevel);
-                console.log(createLevel);
-            createLevel.forEach(function(t, e) {
-                    var i = e;
-                    i = _this2.game.add.sprite(t.x, t.y, "aBirds", t.name),
-                        _this2.game.physics.box2d.enable(i),
-                        i.body.rotation = t.rotation,
-                        "Creaters/Pig_1.png" === t.name &&
-                        (_this2.game.global.pigs += 1,
-                            e % 2 === 0 ?
-                            (i.animations.add("pigdance", ["Creaters/Pig_3.png", "Creaters/Pig_2.png", "Creaters/Pig_1.png"]), i.animations.play("pigdance", 1, !0)) :
-                            (i.animations.add("pigdance", ["Creaters/Pig_2.png", "Creaters/Pig_1.png", "Creaters/Pig_3.png"]), i.animations.play("pigdance", 1, !0))
-                        ),
-                        targetGroup.add(i)
-                }),
-                this.birdsGroup = this.add.group(),
-                this.birdsGroup.add(this.bird1),
-                this.birdsGroup.add(this.bird2),
-                this.birdsGroup.add(this.bird3),
-                this.birdsGroup.add(this.bird4),
-                this.birdsGroup.add(this.bird5),
-                this.bird = this.birdsGroup.children[this.birdsGroup.children.length - 1],
-                this.catapult2 = this.game.add.sprite(175, this.game.height - 298, "aBirds", "Creaters/Stick_2.png"),
-                this.lineSprite2 = this.game.add.sprite(0, 0, this.line2),
-                this.game.physics.box2d.restitution = .3,
-                this.game.physics.box2d.friction = .4,
-                this.game.physics.box2d.angularVelocity = 100,
-                this.game.physics.box2d.bounce = 70,
-                this.ground.fixedToCamera = !1,
-                this.game.physics.box2d.enable(this.ground),
-                this.ground.body["static"] = !0,
-                this.game.physics.box2d.enable(this.bird),
-                this.bird.inputEnabled = !0,
-                this.bird.input.useHandCursor = !0,
-                this.bird.hp = 1,
-                this.bird.body["static"] = !0,
-                this.bird.body.fixedRotation = !1,
-                this.game.input.onDown.add(moveCameraDrag, this),
-                this.callbackID = this.game.input.addMoveCallback(moveCameraDragCB, this),
-                this.game.input.onUp.add(mouseDragEnd, this);
-            for (var i = 0; i < targetGroup.children.length; i++) targetGroup.children[i].body.setCollisionCategory(2), targetGroup.children[i].hp = 1;
-            this.bird.body.setCategoryPostsolveCallback(2, impulseCallback, this), this.bird.body.setCategoryContactCallback(2, targetCallback, this), this.bird.body.setBodyContactCallback(this.ground, worldCallback, this), this.ground.body.setCategoryPostsolveCallback(2, cal, this), this.game.camera.y = 768, this.game.scoreText = this.game.add.bitmapText(50, 5, "bmtFont"), this.game.scoreText.fixedToCamera = !0, this.game.scoreText.setText("Score: " + this.game.global.score), this.game.scoreText.scale.set(1.5), this.foreground = this.game.add.tileSprite(0, this.game.height - 120, 2048, 34, "foreground"), this.game.global.shutFlag = !1, setTimeout(function(t) {
-                t.game.add.tween(t.game.camera).to({
-                    x: 524
-                }, 500, _phaser2["default"].Easing.Linear.None, !0)
-            }, 1e3, this), setTimeout(function(t) {
-                t.game.global.shutFlag = !0, t.game.add.tween(t.game.camera).to({
-                    x: 0
-                }, 500, _phaser2["default"].Easing.Linear.None, !0)
-            }, 3e3, this),
-            this.game.copyrightText = this.game.add.text(this.game.width / 2, this.game.height - 15, "Graphics by Rovio Entertainment Ltd.", {
-                font: "Arial",
-                fontSize: "12px",
-                fill: "#ffffff",
-                align: "center"
-            }), this.game.copyrightText.anchor.setTo(.5), this.game.copyrightText.fixedToCamera = !0
+            var targetGroup = this.add.group();
+            let levels = eval("this.levelData");
+            if (this.game.global.currentLevel < Object.keys(levels).length) {
+                levels["level" + this.game.global.currentLevel].forEach(function(t, e) {
+                        var i = e;
+                        i = _this2.game.add.sprite(t.x, t.y, "aBirds", t.name),
+                            _this2.game.physics.box2d.enable(i),
+                            i.body.rotation = t.rotation,
+                            "Creaters/Pig_1.png" === t.name &&
+                            (_this2.game.global.pigs += 1,
+                                e % 2 === 0 ?
+                                (i.animations.add("pigdance", ["Creaters/Pig_3.png", "Creaters/Pig_2.png", "Creaters/Pig_1.png"]), i.animations.play("pigdance", 1, !0)) :
+                                (i.animations.add("pigdance", ["Creaters/Pig_2.png", "Creaters/Pig_1.png", "Creaters/Pig_3.png"]), i.animations.play("pigdance", 1, !0))
+                            ),
+                            targetGroup.add(i)
+                    }),
+                    this.birdsGroup = this.add.group(),
+                    this.birdsGroup.add(this.bird1),
+                    this.birdsGroup.add(this.bird2),
+                    this.birdsGroup.add(this.bird3),
+                    this.birdsGroup.add(this.bird4),
+                    this.birdsGroup.add(this.bird5),
+                    this.bird = this.birdsGroup.children[this.birdsGroup.children.length - 1],
+                    this.catapult2 = this.game.add.sprite(175, this.game.height - 298, "aBirds", "Creaters/Stick_2.png"),
+                    this.lineSprite2 = this.game.add.sprite(0, 0, this.line2),
+                    this.game.physics.box2d.restitution = .3,
+                    this.game.physics.box2d.friction = .4,
+                    this.game.physics.box2d.angularVelocity = 100,
+                    this.game.physics.box2d.bounce = 70,
+                    this.ground.fixedToCamera = !1,
+                    this.game.physics.box2d.enable(this.ground),
+                    this.ground.body["static"] = !0,
+                    this.game.physics.box2d.enable(this.bird),
+                    this.bird.inputEnabled = !0,
+                    this.bird.input.useHandCursor = !0,
+                    this.bird.hp = 1,
+                    this.bird.body["static"] = !0,
+                    this.bird.body.fixedRotation = !1,
+                    this.game.input.onDown.add(moveCameraDrag, this),
+                    this.callbackID = this.game.input.addMoveCallback(moveCameraDragCB, this),
+                    this.game.input.onUp.add(mouseDragEnd, this);
+                for (var i = 0; i < targetGroup.children.length; i++) targetGroup.children[i].body.setCollisionCategory(2), targetGroup.children[i].hp = 1;
+                this.bird.body.setCategoryPostsolveCallback(2, impulseCallback, this), this.bird.body.setCategoryContactCallback(2, targetCallback, this), this.bird.body.setBodyContactCallback(this.ground, worldCallback, this), this.ground.body.setCategoryPostsolveCallback(2, cal, this), this.game.camera.y = 768, this.game.scoreText = this.game.add.bitmapText(50, 5, "bmtFont"), this.game.scoreText.fixedToCamera = !0, this.game.scoreText.setText("Score: " + this.game.global.score), this.game.scoreText.scale.set(1.5), this.foreground = this.game.add.tileSprite(0, this.game.height - 120, 2048, 34, "foreground"), this.game.global.shutFlag = !1, setTimeout(function(t) {
+                    t.game.add.tween(t.game.camera).to({
+                        x: 524
+                    }, 500, _phaser2["default"].Easing.Linear.None, !0)
+                }, 1e3, this), setTimeout(function(t) {
+                    t.game.global.shutFlag = !0, t.game.add.tween(t.game.camera).to({
+                        x: 0
+                    }, 500, _phaser2["default"].Easing.Linear.None, !0)
+                }, 3e3, this),
+                this.game.copyrightText = this.game.add.text(this.game.width / 2, this.game.height - 15, "Graphics by Rovio Entertainment Ltd.", {
+                    font: "Arial",
+                    fontSize: "12px",
+                    fill: "#ffffff",
+                    align: "center"
+                }), this.game.copyrightText.anchor.setTo(.5), this.game.copyrightText.fixedToCamera = !0
+            }
         },
         update: function() {
             this.game.global.globTime++, this.game.global.resetbirdFlag && this.birdsGroup.children.length > 0 && (this.game.camera.follow(null), this.game.global.targetFlag = !1, this.game.global.resetbirdFlag = !1, setTimeout(resetBird, 5e3, this), setTimeout(func, 5500, this)), void 0 !== this.grass && (this.game.global.killedPigs === this.game.global.pigs && this.game.global.gameOverFlag && this.game.global.shutFlag && (this.game.global.gameOverFlag = !1, this.clear_military.play(), this.game.state.start("win", !1, !0)), this.game.global.killedPigs < this.game.global.pigs && 0 === this.birdsGroup.children.length && this.game.global.gameOverFlag && (this.game.global.gameOverFlag = !1, this.clear_military.play(), this.game.state.start("win", !1, !0)), !this.game.global.resetbirdFlag && this.game.global.trajectory && this.bird.body.x > 200 && this.game.global.globTime % 3 === 1 && (this.game.global.globTime % 2 === 0 ? (this.trajectoryBird = this.game.add.sprite(this.bird.body.sprite.x - 30, this.bird.body.sprite.y, "trajectory1"), this.game.global.trajectoryArr.push(this.trajectoryBird)) : this.trajectoryBird = this.game.add.sprite(this.bird.body.sprite.x - 30, this.bird.body.sprite.y, "trajectory2"), this.game.global.trajectoryArr.push(this.trajectoryBird)), this.camera.x > 0 && this.camera.x < 1024 && this.bird.y < 562 && (this.grass.tilePosition.x = -this.camera.x / 5, this.backgroundFon.tilePosition.x = -this.camera.x / 8, this.sky.tilePosition.x = this.camera.x / 10))
@@ -30175,17 +30175,14 @@ function(t, e, i) {
     }
 
     function n() {
-        console.log("n");
         this.game.global.flag = !1, this.game.global.resetbirdFlag = !1, this.game.global.gameOverFlag = !0, this.game.global.startMove = !1, this.game.global.shutFlag = !0, this.game.global.targetFlag = !0, this.game.global.groundFlag = !1, this.game.global.destroy = !1, this.game.global.moveCameraFlag = !1, this.game.global.touchElemGround = !1, this.game.global.score = 0, this.game.global.killedPigs = 0, this.game.global.pigs = 0, this.game.global.bungee = null, this.game.global.color = "white", this.game.global.trajectory = !1, this.game.global.trajectoryArr = [], this.game.global.clickOnButton = !1, this.game.state.start("menu", !0, !1)
     }
 
     function s() {
-        console.log("s");
         this.game.global.flag = !1, this.game.global.resetbirdFlag = !1, this.game.global.gameOverFlag = !0, this.game.global.startMove = !1, this.game.global.shutFlag = !0, this.game.global.targetFlag = !0, this.game.global.groundFlag = !1, this.game.global.destroy = !1, this.game.global.moveCameraFlag = !1, this.game.global.touchElemGround = !1, this.game.global.score = 0, this.game.global.killedPigs = 0, this.game.global.pigs = 0, this.game.global.bungee = null, this.game.global.color = "white", this.game.global.trajectory = !1, this.game.global.trajectoryArr = [], this.game.global.clickOnButton = !1, this.game.global.currentLevel > 0 && (this.game.global.currentLevel -= 1), this.game.state.start("play", !0, !1)
     }
 
     function r() {
-        console.log("r");
         this.game.global.flag = !1, this.game.global.resetbirdFlag = !1, this.game.global.gameOverFlag = !0, this.game.global.startMove = !1, this.game.global.shutFlag = !0, this.game.global.targetFlag = !0, this.game.global.groundFlag = !1, this.game.global.destroy = !1, this.game.global.moveCameraFlag = !1, this.game.global.touchElemGround = !1, this.game.global.score = 0, this.game.global.killedPigs = 0, this.game.global.pigs = 0, this.game.global.bungee = null, this.game.global.color = "white", this.game.global.trajectory = !1, this.game.global.trajectoryArr = [], this.game.global.clickOnButton = !1, this.game.state.start("play", !0, !1)
     }
     var a = i(303),
