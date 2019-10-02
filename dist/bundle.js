@@ -15511,7 +15511,7 @@ function(t, e, i) {
                 }, n.Text.prototype.setShadow = function(t, e, i, o, n, s) {
                     return void 0 === t && (t = 0), void 0 === e && (e = 0), void 0 === i && (i = "rgba(0, 0, 0, 1)"), void 0 === o && (o = 0), void 0 === n && (n = !0), void 0 === s && (s = !0), this.style.shadowOffsetX = t, this.style.shadowOffsetY = e, this.style.shadowColor = i, this.style.shadowBlur = o, this.style.shadowStroke = n, this.style.shadowFill = s, this.dirty = !0, this
                 }, n.Text.prototype.setStyle = function(t, e) {
-                    void 0 === e && (e = !1), t = t || {}, t.font = t.font || "bold 20pt Ubuntu", t.backgroundColor = t.backgroundColor || null, t.fill = t.fill || "black", t.align = t.align || "left", t.boundsAlignH = t.boundsAlignH || "left", t.boundsAlignV = t.boundsAlignV || "top", t.stroke = t.stroke || "black", t.strokeThickness = t.strokeThickness || 0, t.wordWrap = t.wordWrap || !1, t.wordWrapWidth = t.wordWrapWidth || 100, t.maxLines = t.maxLines || 0, t.shadowOffsetX = t.shadowOffsetX || 0, t.shadowOffsetY = t.shadowOffsetY || 0, t.shadowColor = t.shadowColor || "rgba(0,0,0,0)", t.shadowBlur = t.shadowBlur || 0, t.tabs = t.tabs || 0;
+                    void 0 === e && (e = !1), t = t || {}, t.font = t.font || "bold 20pt Arial", t.backgroundColor = t.backgroundColor || null, t.fill = t.fill || "black", t.align = t.align || "left", t.boundsAlignH = t.boundsAlignH || "left", t.boundsAlignV = t.boundsAlignV || "top", t.stroke = t.stroke || "black", t.strokeThickness = t.strokeThickness || 0, t.wordWrap = t.wordWrap || !1, t.wordWrapWidth = t.wordWrapWidth || 100, t.maxLines = t.maxLines || 0, t.shadowOffsetX = t.shadowOffsetX || 0, t.shadowOffsetY = t.shadowOffsetY || 0, t.shadowColor = t.shadowColor || "rgba(0,0,0,0)", t.shadowBlur = t.shadowBlur || 0, t.tabs = t.tabs || 0;
                     var i = this.fontToComponents(t.font);
                     return t.fontStyle && (i.fontStyle = t.fontStyle), t.fontVariant && (i.fontVariant = t.fontVariant), t.fontWeight && (i.fontWeight = t.fontWeight), t.fontSize && ("number" == typeof t.fontSize && (t.fontSize = t.fontSize + "px"), i.fontSize = t.fontSize), this._fontComponents = i, t.font = this.componentsToFont(this._fontComponents), this.style = t, this.dirty = !0, e && this.updateText(), this
                 }, n.Text.prototype.updateText = function() {
@@ -23038,7 +23038,6 @@ function(t, e) {
 
     t.exports = {
         preload: function() {
-            // this.game.load.image("loadScreen", "./assets/load.png"),
             this.game.load.image("tweet", "./assets/tweet.png"),
                 this.game.load.bitmapFont("bmtFont", "./assets/font/Font_angry_birds.png", "././assets/font/Font_angry_birds.xml")
         },
@@ -23047,10 +23046,7 @@ function(t, e) {
                 this.game.load.onLoadStart.add(this.loadStart, this),
                 this.game.load.onFileComplete.add(this.fileComplete, this),
                 this.game.load.onLoadComplete.add(this.loadComplete, this),
-                // this.game.bmpText = this.game.add.bitmapText(this.game.width / 2 - 60, this.game.height / 2 + 150, "bmtFont"),
-                // this.game.bmpText.scale.set(2),
                 this.game.bmpText = this.game.add.text(this.game.width / 2 + 200, this.game.height / 2 + 70, "0%", {
-                    // font: "Ubuntu",
                     font: "Ubuntu",
                     fontSize: "60px",
                     fill: "#14171a",
@@ -23080,20 +23076,17 @@ function(t, e) {
             this.game.load.text("level", "./assets/levels.json"),
                 this.game.load.atlasJSONHash("aBirds", "./assets/BirdAngry.png", "./assets/BirdAngry.json"),
                 this.game.load.atlasJSONHash("bang", "./assets/bang.png", "./assets/bang.json"),
-                // this.game.load.atlasJSONHash("mapItems", "./assets/menu/map.png", "./assets/menu/map.json"),
                 this.game.load.atlasJSONHash("popup", "./assets/popup/popup.png", "./assets/popup/popup.json"),
-                this.game.load.image("tweet", "./assets/tweet.png"),
-                this.game.load.image("background", "./assets/bg/background.png"),
-                this.game.load.image("foreground", "./assets/bg/foreground.png"),
-                this.game.load.image("grass", "./assets/bg/grass.png"),
-                this.game.load.image("ground", "./assets/bg/ground.png"),
-                this.game.load.image("sky", "./assets/bg/sky1.png"),
+                this.game.load.image("background", "./assets/bg/bg1.png"),
+                this.game.load.image("foreground", "./assets/bg/blank.png"),
+                this.game.load.image("grass", "./assets/bg/buildings.png"),
+                this.game.load.image("ground", "./assets/bg/ground.jpg"),
+                this.game.load.image("sky", "./assets/bg/sky1.jpg"),
                 this.game.load.image("releasePoint", "./assets/dot.png"),
                 this.game.load.image("shtepka", "./assets/shtepka.png"),
                 this.game.load.image("bird_particle", "./assets/bird_particle.png"),
                 this.game.load.image("trajectory1", "./assets/trace_part1.png"),
                 this.game.load.image("trajectory2", "./assets/trace_part2.png"),
-                // this.game.load.image("menuMap", "./assets/load.png"),
                 this.game.load.image("popupBG", "./assets/popup/panel.png"),
                 this.game.load.audio("wood_destroyed", "./assets/audio/wood_destroyed.mp3"),
                 this.game.load.audio("wood_damage", "./assets/audio/wood_damage.mp3"),
@@ -23122,19 +23115,6 @@ function(t, e, i) {
     function n(t) {
         this.game.global.clickOnButton = !0,
         (this.game.bgMusicMenu.stop(), this.game.global.levelSelect = t.parent.children.indexOf(t), this.game.state.start("play"), this.game.global.startMove = !1, this.game.global.moveCameraFlag = !1, this.game.global.clickOnButton = !1)
-        // "big_button_yellow.png" === t.frameName ? (this.game.bgMusicMenu.stop(), this.game.global.levelSelect = t.parent.children.indexOf(t), this.game.state.start("play"), this.game.global.startMove = !1, this.game.global.moveCameraFlag = !1, this.game.global.clickOnButton = !1) : "big_button_grey.png" === t.frameName && (this.tweenButton = this.game.add.tween(t).to({
-        //     x: t.x + 6
-        // }, 20, l["default"].Easing.Linear.None).to({
-        //     x: t.x - 5
-        // }, 20, l["default"].Easing.Linear.None).to({
-        //     x: t.x + 4
-        // }, 20, l["default"].Easing.Linear.None).to({
-        //     x: t.x - 3
-        // }, 20, l["default"].Easing.Linear.None).to({
-        //     x: t.x + 2
-        // }, 20, l["default"].Easing.Linear.None).to({
-        //     x: t.x
-        // }, 20, l["default"].Easing.Linear.None).start())
     }
 
     function s() {
@@ -23159,64 +23139,11 @@ function(t, e, i) {
         create: function() {
             var t = this;
             this.game.world.setBounds(0, 0, 1024, 768),
-            // this.menuMap = this.game.add.sprite(102, 163, "tweet"),
             this.buttonLevel0 = this.game.add.sprite(102, 163, "tweet"),
-            // this.buttonLevel0 = this.game.add.sprite(0, 0, "mapItems", "big_button_yellow.png"),
-            // this.buttonLevel0 = this.game.add.sprite(163, 315, "mapItems", "big_button_yellow.png"),
-            // this.buttonLevel1 = this.game.add.sprite(540, 390, "mapItems", "big_button_grey.png"),
-            // this.buttonLevel2 = this.game.add.sprite(920, 553, "mapItems", "big_button_grey.png"),
-            // this.buttonLevel3 = this.game.add.sprite(1261, 406, "mapItems", "big_button_grey.png"),
-            // this.buttonLevel4 = this.game.add.sprite(1520, 158, "mapItems", "big_button_grey.png"),
-            // this.buttonLevel5 = this.game.add.sprite(1847, 73, "mapItems", "big_button_grey.png"),
-            // this.buttonLevel6 = this.game.add.sprite(2209, 260, "mapItems", "big_button_grey.png"),
-            // this.markerLevel0 = this.game.add.sprite(332, 384, "mapItems", "small_button_grey.png"),
-            // this.markerLevel1 = this.game.add.sprite(443, 399, "mapItems", "small_button_grey.png"),
-            // this.markerLevel2 = this.game.add.sprite(704, 552, "mapItems", "small_button_grey.png"),
-            // this.markerLevel3 = this.game.add.sprite(815, 599, "mapItems", "small_button_grey.png"),
-            // this.markerLevel4 = this.game.add.sprite(1081, 594, "mapItems", "small_button_grey.png"),
-            // this.markerLevel5 = this.game.add.sprite(1189, 545, "mapItems", "small_button_grey.png"),
-            // this.markerLevel6 = this.game.add.sprite(1395, 403, "mapItems", "small_button_grey.png"),
-            // this.markerLevel7 = this.game.add.sprite(1471, 328, "mapItems", "small_button_grey.png"),
-            // this.markerLevel8 = this.game.add.sprite(1657, 161, "mapItems", "small_button_grey.png"),
-            // this.markerLevel9 = this.game.add.sprite(1751, 139, "mapItems", "small_button_grey.png"),
-            // this.markerLevel10 = this.game.add.sprite(2026, 183, "mapItems", "small_button_grey.png"),
-            // this.markerLevel11 = this.game.add.sprite(2125, 249, "mapItems", "small_button_grey.png"),
-            // this.markerGroup = this.game.add.group(),
-            // this.markerGroup.add(this.markerLevel0),
-            // this.markerGroup.add(this.markerLevel1),
-            // this.markerGroup.add(this.markerLevel2),
-            // this.markerGroup.add(this.markerLevel3),
-            // this.markerGroup.add(this.markerLevel4),
-            // this.markerGroup.add(this.markerLevel5),
-            // this.markerGroup.add(this.markerLevel6),
-            // this.markerGroup.add(this.markerLevel7),
-            // this.markerGroup.add(this.markerLevel8),
-            // this.markerGroup.add(this.markerLevel9),
-            // this.markerGroup.add(this.markerLevel10),
-            // this.markerGroup.add(this.markerLevel11),
-            // this.buttonGroup = this.game.add.group(),
-            // this.buttonGroup.add(this.buttonLevel0),
-            // this.buttonGroup.add(this.buttonLevel1),
-            // this.buttonGroup.add(this.buttonLevel2),
-            // this.buttonGroup.add(this.buttonLevel3),
-            // this.buttonGroup.add(this.buttonLevel4),
-            // this.buttonGroup.add(this.buttonLevel5),
-            // this.buttonGroup.add(this.buttonLevel6),
             this.buttonLevel0.inputEnabled = !0,
             this.buttonLevel0.input.useHandCursor = !0,
             this.buttonLevel0.events.onInputDown.add(n, t),
-            // this.buttonGroup.children.forEach(function(e, i) {
-            //     e.inputEnabled = !0, e.input.useHandCursor = !0, e.events.onInputDown.add(n, t)
-            //     // t.game.levelIndex = t.game.add.bitmapText(e.x + 50, e.y + 70, "bmtLevel"),
-            //     // t.game.levelIndex.scale.set(2), t.game.levelIndex.anchor.set(.5),
-            //     // t.game.levelIndex.setText("" + (i + 1))
-            // }, this);
-            // for (var e = 0; e < 1; e++)
-            //     if (0 === this.game.global.levels[e]) {
-            //         this.buttonGroup.children[e].frameName = "big_button_yellow.png";
-            //         for (var i = 2 * e - 1; i >= 0; i--) this.markerGroup.children[i].frameName = "small_button_yellow.png"
-            //     } else this.game.global.levels[e] > 0 && (this.buttonGroup.children[e].frameName = this.game.global.levels[e] + ".png");
-            this.game.bgMusicMenu = this.game.add.audio("bgAudio"), this.game.bgMusicMenu.volume = .2, this.game.bgMusicMenu.play(), this.game.input.onDown.add(s, this), this.callbackIDMenu = this.game.input.addMoveCallback(r, this), this.game.input.onUp.add(a, this)
+            this.game.bgMusicMenu = this.game.add.audio("bgAudio"), this.game.bgMusicMenu.volume = .2, this.game.bgMusicMenu.play(), this.game.input.onDown.add(s, this), this.callbackIDMenu = this.game.input.addMoveCallback(r, this), this.game.input.onUp.add(a, this),
             this.game.copyrightText = this.game.add.text(this.game.width / 2, this.game.height - 50, "Направихме бойкомет!", {
                 font: "Ubuntu",
                 fontSize: "24px",
@@ -23408,7 +23335,7 @@ function(module, exports, __webpack_require__) {
                 this.game.global.star = 0,
                 this.game.physics.startSystem(_phaser2["default"].Physics.BOX2D),
                 this.game.physics.box2d.setBoundsToWorld(),
-                this.game.world.setBounds(0, 0, 2048, 868),
+                this.game.world.setBounds(0, 0, 1800, 868),
                 this.levelData = JSON.parse(this.game.cache.getText("level")),
                 this.bgMusic = this.game.add.audio("bgAudio"),
                 this.bgMusic.volume = .2,
@@ -23422,10 +23349,9 @@ function(module, exports, __webpack_require__) {
                 this.pig_damage = this.game.add.audio("pig_damage"),
                 this.pig_destroyed = this.game.add.audio("pig_destroyed"),
                 this.sky = this.game.add.tileSprite(0, 0, 2048, 678, "sky"),
-                this.backgroundFon = this.game.add.tileSprite(0, this.game.height - 294, 2048, 204, "background"),
-                this.grass = this.game.add.tileSprite(0, this.game.height - 150, 2048, 59, "grass"),
-                this.ground = this.game.add.tileSprite(0, this.game.height + 5, 2048, 190, "ground"),
-                this.ground = this.game.add.tileSprite(1024, this.game.height + 5, 2048, 190, "ground"),
+                this.backgroundFon = this.game.add.tileSprite(0, this.game.height - 358, 2048, 268, "background"),
+                this.grass = this.game.add.tileSprite(0, this.game.height - 203, 1900, 114, "grass"),
+                this.ground = this.game.add.tileSprite(0, this.game.height + 5, 3100, 190, "ground"),
                 this.catapult = this.game.add.sprite(200, this.game.height - 290, "aBirds", "Creaters/Stick_1.png"),
                 this.line = this.game.add.bitmapData(320, 800),
                 this.lineSprite = this.game.add.sprite(0, 0, this.line),
@@ -23435,64 +23361,89 @@ function(module, exports, __webpack_require__) {
                 this.bird4 = this.game.add.sprite(0, this.game.height - 140, "aBirds", "Creaters/Red_1.png"),
                 this.bird5 = this.game.add.sprite(this.game.global.firePos.x, this.game.global.firePos.y, "aBirds", "Creaters/Red_1.png"),
                 this.line2 = this.game.add.bitmapData(320, 800);
-            var targetGroup = this.add.group(),
-                createLevel = eval("this.levelData.level" + this.game.global.currentLevel);
-            createLevel.forEach(function(t, e) {
-                    var i = e;
-                    i = _this2.game.add.sprite(t.x, t.y, "aBirds", t.name),
-                        _this2.game.physics.box2d.enable(i),
-                        i.body.rotation = t.rotation,
-                        "Creaters/Pig_1.png" === t.name &&
-                        (_this2.game.global.pigs += 1,
-                            e % 2 === 0 ?
-                            (i.animations.add("pigdance", ["Creaters/Pig_3.png", "Creaters/Pig_2.png", "Creaters/Pig_1.png"]), i.animations.play("pigdance", 1, !0)) :
-                            (i.animations.add("pigdance", ["Creaters/Pig_2.png", "Creaters/Pig_1.png", "Creaters/Pig_3.png"]), i.animations.play("pigdance", 1, !0))
-                        ),
-                        targetGroup.add(i)
-                }),
-                this.birdsGroup = this.add.group(),
-                this.birdsGroup.add(this.bird1),
-                this.birdsGroup.add(this.bird2),
-                this.birdsGroup.add(this.bird3),
-                this.birdsGroup.add(this.bird4),
-                this.birdsGroup.add(this.bird5),
-                this.bird = this.birdsGroup.children[this.birdsGroup.children.length - 1],
-                this.catapult2 = this.game.add.sprite(175, this.game.height - 298, "aBirds", "Creaters/Stick_2.png"),
-                this.lineSprite2 = this.game.add.sprite(0, 0, this.line2),
-                this.game.physics.box2d.restitution = .3,
-                this.game.physics.box2d.friction = .4,
-                this.game.physics.box2d.angularVelocity = 100,
-                this.game.physics.box2d.bounce = 70,
-                this.ground.fixedToCamera = !1,
-                this.game.physics.box2d.enable(this.ground),
-                this.ground.body["static"] = !0,
-                this.game.physics.box2d.enable(this.bird),
-                this.bird.inputEnabled = !0,
-                this.bird.input.useHandCursor = !0,
-                this.bird.hp = 1,
-                this.bird.body["static"] = !0,
-                this.bird.body.fixedRotation = !1,
-                this.game.input.onDown.add(moveCameraDrag, this),
-                this.callbackID = this.game.input.addMoveCallback(moveCameraDragCB, this),
-                this.game.input.onUp.add(mouseDragEnd, this);
-            for (var i = 0; i < targetGroup.children.length; i++) targetGroup.children[i].body.setCollisionCategory(2), targetGroup.children[i].hp = 1;
-            this.bird.body.setCategoryPostsolveCallback(2, impulseCallback, this), this.bird.body.setCategoryContactCallback(2, targetCallback, this), this.bird.body.setBodyContactCallback(this.ground, worldCallback, this), this.ground.body.setCategoryPostsolveCallback(2, cal, this), this.game.camera.y = 768, this.game.scoreText = this.game.add.bitmapText(50, 5, "bmtFont"), this.game.scoreText.fixedToCamera = !0, this.game.scoreText.setText("Score: " + this.game.global.score), this.game.scoreText.scale.set(1.5), this.foreground = this.game.add.tileSprite(0, this.game.height - 120, 2048, 34, "foreground"), this.game.global.shutFlag = !1, setTimeout(function(t) {
-                t.game.add.tween(t.game.camera).to({
-                    x: 524
-                }, 500, _phaser2["default"].Easing.Linear.None, !0)
-            }, 1e3, this), setTimeout(function(t) {
-                t.game.global.shutFlag = !0, t.game.add.tween(t.game.camera).to({
-                    x: 0
-                }, 500, _phaser2["default"].Easing.Linear.None, !0)
-            }, 3e3, this), console.log(this.game), this.game.copyrightText = this.game.add.text(this.game.width / 2, this.game.height - 15, "Graphics by Rovio Entertainment Ltd.", {
-                font: "Ubuntu",
-                fontSize: "12px",
-                fill: "#ffffff",
-                align: "center"
-            }), this.game.copyrightText.anchor.setTo(.5), this.game.copyrightText.fixedToCamera = !0
+            var targetGroup = this.add.group();
+            let levels = eval("this.levelData");
+            if (this.game.global.currentLevel < Object.keys(levels).length) {
+                levels["level" + this.game.global.currentLevel].forEach(function(t, e) {
+                        var i = e;
+                        i = _this2.game.add.sprite(t.x, t.y, "aBirds", t.name),
+                            _this2.game.physics.box2d.enable(i),
+                            i.body.rotation = t.rotation,
+                            "Creaters/Pig_1.png" === t.name &&
+                            (_this2.game.global.pigs += 1,
+                                e % 2 === 0 ?
+                                (i.animations.add("pigdance", ["Creaters/Pig_3.png", "Creaters/Pig_2.png", "Creaters/Pig_1.png"]), i.animations.play("pigdance", 1, !0)) :
+                                (i.animations.add("pigdance", ["Creaters/Pig_2.png", "Creaters/Pig_1.png", "Creaters/Pig_3.png"]), i.animations.play("pigdance", 1, !0))
+                            ),
+                            targetGroup.add(i)
+                    }),
+                    this.birdsGroup = this.add.group(),
+                    this.birdsGroup.add(this.bird1),
+                    this.birdsGroup.add(this.bird2),
+                    this.birdsGroup.add(this.bird3),
+                    this.birdsGroup.add(this.bird4),
+                    this.birdsGroup.add(this.bird5),
+                    this.bird = this.birdsGroup.children[this.birdsGroup.children.length - 1],
+                    this.catapult2 = this.game.add.sprite(175, this.game.height - 298, "aBirds", "Creaters/Stick_2.png"),
+                    this.lineSprite2 = this.game.add.sprite(0, 0, this.line2),
+                    this.game.physics.box2d.restitution = .3,
+                    this.game.physics.box2d.friction = .4,
+                    this.game.physics.box2d.angularVelocity = 100,
+                    this.game.physics.box2d.bounce = 70,
+                    this.ground.fixedToCamera = !1,
+                    this.game.physics.box2d.enable(this.ground),
+                    this.ground.body["static"] = !0,
+                    this.game.physics.box2d.enable(this.bird),
+                    this.bird.inputEnabled = !0,
+                    this.bird.input.useHandCursor = !0,
+                    this.bird.hp = 1,
+                    this.bird.body["static"] = !0,
+                    this.bird.body.fixedRotation = !1,
+                    this.game.input.onDown.add(moveCameraDrag, this),
+                    this.callbackID = this.game.input.addMoveCallback(moveCameraDragCB, this),
+                    this.game.input.onUp.add(mouseDragEnd, this);
+                for (var i = 0; i < targetGroup.children.length; i++) targetGroup.children[i].body.setCollisionCategory(2), targetGroup.children[i].hp = 1;
+                this.bird.body.setCategoryPostsolveCallback(2, impulseCallback, this),
+                    this.bird.body.setCategoryContactCallback(2, targetCallback, this),
+                    this.bird.body.setBodyContactCallback(this.ground, worldCallback, this),
+                    this.ground.body.setCategoryPostsolveCallback(2, cal, this),
+                    this.game.camera.y = 768,
+                    this.game.scoreText = this.game.add.bitmapText(50, 5, "bmtFont"),
+                    this.game.scoreText.fixedToCamera = !0,
+                    this.game.scoreText.setText("€" + this.game.global.score),
+                    this.game.scoreText.scale.set(1.5),
+                    this.foreground = this.game.add.tileSprite(0, this.game.height - 120, 2048, 34, "foreground"),
+                    this.game.global.shutFlag = !1,
+                    setTimeout(function(t) {
+                    t.game.add.tween(t.game.camera).to({
+                        x: 524
+                    }, 500, _phaser2["default"].Easing.Linear.None, !0)
+                }, 1e3, this), setTimeout(function(t) {
+                    t.game.global.shutFlag = !0, t.game.add.tween(t.game.camera).to({
+                        x: 0
+                    }, 500, _phaser2["default"].Easing.Linear.None, !0)
+                }, 3e3, this),
+                this.game.copyrightText = this.game.add.text(this.game.width / 2, this.game.height - 15, "Graphics by Rovio Entertainment Ltd.", {
+                    font: "Ubuntu",
+                    fontSize: "12px",
+                    fill: "#ffffff",
+                    align: "center"
+                }), this.game.copyrightText.anchor.setTo(.5), this.game.copyrightText.fixedToCamera = !0
+            }
         },
         update: function() {
-            this.game.global.globTime++, this.game.global.resetbirdFlag && this.birdsGroup.children.length > 0 && (this.game.camera.follow(null), this.game.global.targetFlag = !1, this.game.global.resetbirdFlag = !1, setTimeout(resetBird, 5e3, this), setTimeout(func, 5500, this)), void 0 !== this.grass && (this.game.global.killedPigs === this.game.global.pigs && this.game.global.gameOverFlag && this.game.global.shutFlag && (this.game.global.gameOverFlag = !1, this.clear_military.play(), this.game.state.start("win", !1, !0)), this.game.global.killedPigs < this.game.global.pigs && 0 === this.birdsGroup.children.length && this.game.global.gameOverFlag && (this.game.global.gameOverFlag = !1, this.clear_military.play(), this.game.state.start("win", !1, !0)), !this.game.global.resetbirdFlag && this.game.global.trajectory && this.bird.body.x > 200 && this.game.global.globTime % 3 === 1 && (this.game.global.globTime % 2 === 0 ? (this.trajectoryBird = this.game.add.sprite(this.bird.body.sprite.x - 30, this.bird.body.sprite.y, "trajectory1"), this.game.global.trajectoryArr.push(this.trajectoryBird)) : this.trajectoryBird = this.game.add.sprite(this.bird.body.sprite.x - 30, this.bird.body.sprite.y, "trajectory2"), this.game.global.trajectoryArr.push(this.trajectoryBird)), this.camera.x > 0 && this.camera.x < 1024 && this.bird.y < 562 && (this.grass.tilePosition.x = -this.camera.x / 5, this.backgroundFon.tilePosition.x = -this.camera.x / 8, this.sky.tilePosition.x = this.camera.x / 10))
+            this.game.global.globTime++,
+            this.game.global.resetbirdFlag && this.birdsGroup.children.length > 0 && (this.game.camera.follow(null),
+                this.game.global.targetFlag = !1,
+                this.game.global.resetbirdFlag = !1,
+                setTimeout(resetBird, 5e3, this),
+                setTimeout(func, 5500, this)),
+                void 0 !== this.grass && (this.game.global.killedPigs === this.game.global.pigs && this.game.global.gameOverFlag && this.game.global.shutFlag && (this.game.global.gameOverFlag = !1, this.clear_military.play(), this.game.state.start("win", !1, !0)), this.game.global.killedPigs < this.game.global.pigs && 0 === this.birdsGroup.children.length && this.game.global.gameOverFlag && (this.game.global.gameOverFlag = !1, this.clear_military.play(), this.game.state.start("win", !1, !0)),
+                    !this.game.global.resetbirdFlag && this.game.global.trajectory && this.bird.body.x > 200 && this.game.global.globTime % 3 === 1 && (this.game.global.globTime % 2 === 0 ? (this.trajectoryBird = this.game.add.sprite(this.bird.body.sprite.x - 30, this.bird.body.sprite.y, "trajectory1"), this.game.global.trajectoryArr.push(this.trajectoryBird)) : this.trajectoryBird = this.game.add.sprite(this.bird.body.sprite.x - 30, this.bird.body.sprite.y, "trajectory2"), this.game.global.trajectoryArr.push(this.trajectoryBird)),
+                    this.camera.x > 0 && this.camera.x < 1024 && this.bird.y < 562
+                        && (this.grass.tilePosition.x = -this.camera.x / 5,
+                            this.backgroundFon.tilePosition.x = -this.camera.x / 8,
+                            this.sky.tilePosition.x = this.camera.x / 10))
         }
     }
 },
@@ -30256,14 +30207,47 @@ function(t, e, i) {
         h = o(a);
     t.exports = {
         create: function() {
-            this.menuMap = this.game.add.sprite(0, 0, "popupBG"), this.menuPopup = this.game.add.sprite(this.game.width / 2 - 100 - 30, 450, "popup", "menu_button.png"), this.menuPopup.inputEnabled = !0, this.menuPopup.input.useHandCursor = !0, this.menuPopup.events.onInputDown.add(n, this), this.reloadPopup = this.game.add.sprite(this.game.width / 2 - 30, 450, "popup", "reload_button.png"), this.reloadPopup.inputEnabled = !0, this.reloadPopup.input.useHandCursor = !0, this.reloadPopup.events.onInputDown.add(s, this), this.forwardPopup = this.game.add.sprite(this.game.width / 2 + 100 - 30, 450, "popup", "forward_button.png"), this.forwardPopup.inputEnabled = !0, this.forwardPopup.input.useHandCursor = !0, this.forwardPopup.events.onInputDown.add(r, this), this.game.scoreTextWin = this.game.add.bitmapText(this.game.width / 2, 350, "bmtFont"), this.game.scoreTextWin.fixedToCamera = !0, this.game.scoreTextWin.scale.set(2), this.game.scoreTextWin.anchor.set(.5), this.winGroupe = this.add.group(), this.winGroupe.add(this.menuMap), this.winGroupe.add(this.menuPopup), this.winGroupe.add(this.reloadPopup), this.winGroupe.add(this.forwardPopup), this.winGroupe.add(this.game.scoreTextWin), this.winGroupe.alpha = 0, this.game.add.tween(this.winGroupe).to({
+            this.menuMap = this.game.add.sprite(0, 0, "popupBG"),
+            this.menuPopup = this.game.add.sprite(this.game.width / 2 - 100 - 30, 450, "popup", "menu_button.png"),
+            this.menuPopup.inputEnabled = !0,
+            this.menuPopup.input.useHandCursor = !0,
+            this.menuPopup.events.onInputDown.add(n, this),
+            this.reloadPopup = this.game.add.sprite(this.game.width / 2 - 30, 450, "popup", "reload_button.png"),
+            this.reloadPopup.inputEnabled = !0,
+            this.reloadPopup.input.useHandCursor = !0,
+            this.reloadPopup.events.onInputDown.add(s, this),
+            this.forwardPopup = this.game.add.sprite(this.game.width / 2 + 100 - 30, 450, "popup", "forward_button.png"),
+            this.forwardPopup.inputEnabled = !0,
+            this.forwardPopup.input.useHandCursor = !0,
+            this.forwardPopup.events.onInputDown.add(r, this),
+            this.game.scoreTextWin = this.game.add.bitmapText(this.game.width / 2, 350, "bmtFont"),
+            this.game.scoreTextWin.fixedToCamera = !0,
+            this.game.scoreTextWin.scale.set(2),
+            this.game.scoreTextWin.anchor.set(0.5),
+            this.winGroupe = this.add.group(),
+            this.winGroupe.add(this.menuMap),
+            this.winGroupe.add(this.menuPopup),
+            this.winGroupe.add(this.reloadPopup),
+            this.winGroupe.add(this.forwardPopup),
+            this.winGroupe.add(this.game.scoreTextWin),
+            this.winGroupe.alpha = 0,
+            this.game.add.tween(this.winGroupe).to({
                 alpha: 1
-            }, 500, h["default"].Easing.Quadratic.Out, !0), this.game.global.score >= 1e3 & this.game.global.score <= 1500 ? this.game.global.star = 1 : this.game.global.score > 1500 && this.game.global.score <= 3e3 ? this.game.global.star = 2 : this.game.global.score > 3e3 ? this.game.global.star = 3 : this.game.global.star = 0, this.game.global.star > 0 ? (this.starPopup = this.game.add.sprite(this.game.width / 2 - 117, 230, "popup", this.game.global.star + ".png"), this.game.scoreTextWin.setText("" + this.game.global.score), this.game.global.levels.splice(this.game.global.currentLevel, 1, this.game.global.star), this.game.global.currentLevel += 1, this.game.global.levels.splice(this.game.global.currentLevel, 1, 0)) : (this.game.scoreTextWin.setText("Game Over"), this.forwardPopup.visible = !1), this.game.copyrightText = this.game.add.text(this.game.width / 2, this.game.height - 15, "Graphics by Rovio Entertainment Ltd.", {
+            }, 500, h["default"].Easing.Quadratic.Out, !0),
+            this.game.global.score >= 1e3 & this.game.global.score <= 1500 ? this.game.global.star = 1 : this.game.global.score > 1500 && this.game.global.score <= 3e3 ? this.game.global.star = 2 : this.game.global.score > 3e3 ? this.game.global.star = 3 : this.game.global.star = 0,
+            this.game.global.star > 0 ? (
+                this.starPopup = this.game.add.sprite(this.game.width / 2 - 117, 230, "popup", this.game.global.star + ".png"),
+                this.game.scoreTextWin.setText("" + this.game.global.score),
+                this.game.global.levels.splice(this.game.global.currentLevel, 1, this.game.global.star),
+                this.game.global.currentLevel += 1,
+                this.game.global.levels.splice(this.game.global.currentLevel, 1, 0)
+            ) : (this.game.scoreTextWin.setText("Game Over"), this.forwardPopup.visible = !1),
+            this.game.copyrightText = this.game.add.text(this.game.width / 2, this.game.height - 15, "Graphics by Rovio Entertainment Ltd.", {
                 font: "Ubuntu",
                 fontSize: "12px",
                 fill: "#ffffff",
                 align: "center"
-            }), this.game.copyrightText.anchor.setTo(.5)
+            }), this.game.copyrightText.anchor.setTo(0.5)
         }
     }
 }
