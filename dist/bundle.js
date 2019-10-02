@@ -5250,7 +5250,7 @@ function(t, e, i) {
         color: "white",
         trajectory: !1,
         trajectoryArr: [],
-        currentLevel: 6,
+        currentLevel: 0,
         firePos: {
             x: 210,
             y: 498
@@ -23079,11 +23079,11 @@ function(t, e) {
                 this.game.load.atlasJSONHash("bang", "./assets/bang.png", "./assets/bang.json"),
                 this.game.load.atlasJSONHash("mapItems", "./assets/menu/map.png", "./assets/menu/map.json"),
                 this.game.load.atlasJSONHash("popup", "./assets/popup/popup.png", "./assets/popup/popup.json"),
-                this.game.load.image("background", "./assets/bg/background.png"),
-                this.game.load.image("foreground", "./assets/bg/foreground.png"),
-                this.game.load.image("grass", "./assets/bg/grass.png"),
-                this.game.load.image("ground", "./assets/bg/ground.png"),
-                this.game.load.image("sky", "./assets/bg/sky1.png"),
+                this.game.load.image("background", "./assets/bg/bg1.png"),
+                this.game.load.image("foreground", "./assets/bg/blank.png"),
+                this.game.load.image("grass", "./assets/bg/buildings.png"),
+                this.game.load.image("ground", "./assets/bg/ground.jpg"),
+                this.game.load.image("sky", "./assets/bg/sky1.jpg"),
                 this.game.load.image("releasePoint", "./assets/dot.png"),
                 this.game.load.image("shtepka", "./assets/shtepka.png"),
                 this.game.load.image("bird_particle", "./assets/bird_particle.png"),
@@ -23199,9 +23199,9 @@ function(module, exports, __webpack_require__) {
     function cal(t, e, i, o, n, s) {
         var r, a;
         if (n && s.normalImpulses[0] > 1.5 && this.game.global.touchElemGround && e.sprite)
-            if (e.sprite.hp > 3) "Creaters/Pig" === e.sprite.frameName.split("_")[0] || "Creaters/PigShit" === e.sprite.frameName.split("_")[0] ? (this.game.global.killedPigs += 1, this.game.global.score += 1e3, this.game.scoreText.setText("Score: " + this.game.global.score), r = this.game.add.sprite(e.sprite.x - 50, e.sprite.y - 50, "bang"), r.animations.add("boom"), r.animations.play("boom", 7, !1), e.sprite.destroy(), this.pig_destroyed.play(), setTimeout(function() {
+            if (e.sprite.hp > 3) "Creaters/Pig" === e.sprite.frameName.split("_")[0] || "Creaters/PigShit" === e.sprite.frameName.split("_")[0] ? (this.game.global.killedPigs += 1, this.game.global.score += 1e3, this.game.scoreText.setText("€" + this.game.global.score), r = this.game.add.sprite(e.sprite.x - 50, e.sprite.y - 50, "bang"), r.animations.add("boom"), r.animations.play("boom", 7, !1), e.sprite.destroy(), this.pig_destroyed.play(), setTimeout(function() {
                 r.destroy()
-            }, 500)) : (a = this.game.add.emitter(e.sprite.x - 20, e.sprite.y - 20, 100), a.makeParticles("shtepka"), this.game.physics.box2d.enable(a), a.gravity = 200, a.start(!0, 2e3, null, 30), e.sprite.destroy(), this.game.global.score += 100, this.game.scoreText.setText("Score: " + this.game.global.score), this.wood_destroyed.play(), setTimeout(function() {
+            }, 500)) : (a = this.game.add.emitter(e.sprite.x - 20, e.sprite.y - 20, 100), a.makeParticles("shtepka"), this.game.physics.box2d.enable(a), a.gravity = 200, a.start(!0, 2e3, null, 30), e.sprite.destroy(), this.game.global.score += 100, this.game.scoreText.setText("€" + this.game.global.score), this.wood_destroyed.play(), setTimeout(function() {
                 a.destroy()
             }, 1e3));
             else if (e.sprite.hp < 4)
@@ -23222,9 +23222,9 @@ function(module, exports, __webpack_require__) {
         if (n) {
             this.game.global.touchElemGround = !0, this.game.global.trajectory = !1;
             var r, a;
-            if (s.normalImpulses[0] > 9) t.sprite.body.angularVelocity = -5, "Creaters/Pig" === e.sprite.frameName.split("_")[0] || "Creaters/PigShit" === e.sprite.frameName.split("_")[0] ? (this.game.global.killedPigs += 1, this.game.global.score += 1e3, this.game.scoreText.setText("Score: " + this.game.global.score), r = this.game.add.sprite(e.sprite.x - 50, e.sprite.y - 50, "bang"), r.animations.add("boom"), r.animations.play("boom", 7, !1), e.sprite.destroy(), this.pig_destroyed.play(), setTimeout(function() {
+            if (s.normalImpulses[0] > 9) t.sprite.body.angularVelocity = -5, "Creaters/Pig" === e.sprite.frameName.split("_")[0] || "Creaters/PigShit" === e.sprite.frameName.split("_")[0] ? (this.game.global.killedPigs += 1, this.game.global.score += 1e3, this.game.scoreText.setText("€" + this.game.global.score), r = this.game.add.sprite(e.sprite.x - 50, e.sprite.y - 50, "bang"), r.animations.add("boom"), r.animations.play("boom", 7, !1), e.sprite.destroy(), this.pig_destroyed.play(), setTimeout(function() {
                 r.destroy()
-            }, 500)) : (a = this.game.add.emitter(e.sprite.x - 20, e.sprite.y - 20, 100), a.makeParticles("shtepka"), this.game.physics.box2d.enable(a), a.gravity = 200, a.start(!0, 2e3, null, 30), e.sprite.destroy(), this.game.global.score += 100, this.game.scoreText.setText("Score: " + this.game.global.score), this.wood_destroyed.play(), setTimeout(function() {
+            }, 500)) : (a = this.game.add.emitter(e.sprite.x - 20, e.sprite.y - 20, 100), a.makeParticles("shtepka"), this.game.physics.box2d.enable(a), a.gravity = 200, a.start(!0, 2e3, null, 30), e.sprite.destroy(), this.game.global.score += 100, this.game.scoreText.setText("€" + this.game.global.score), this.wood_destroyed.play(), setTimeout(function() {
                 a.destroy()
             }, 1e3));
             else if (s.normalImpulses[0] > 5 && s.normalImpulses[0] < 9)
@@ -23233,15 +23233,15 @@ function(module, exports, __webpack_require__) {
                     var h = e.sprite,
                         l = e.sprite.frameName.split("_")[0];
                     h.loadTexture("aBirds", l + "_" + e.sprite.hp + ".png")
-                } else "Creaters/Pig" === e.sprite.frameName.split("_")[0] || "Creaters/PigShit" === e.sprite.frameName.split("_")[0] ? (this.game.global.killedPigs += 1, this.game.global.score += 1e3, this.game.scoreText.setText("Score: " + this.game.global.score), r = this.game.add.sprite(e.sprite.x - 50, e.sprite.y - 50, "bang"), r.animations.add("boom"), r.animations.play("boom", 7, !1), e.sprite.destroy(), this.pig_destroyed.play(), setTimeout(function() {
+                } else "Creaters/Pig" === e.sprite.frameName.split("_")[0] || "Creaters/PigShit" === e.sprite.frameName.split("_")[0] ? (this.game.global.killedPigs += 1, this.game.global.score += 1e3, this.game.scoreText.setText("€" + this.game.global.score), r = this.game.add.sprite(e.sprite.x - 50, e.sprite.y - 50, "bang"), r.animations.add("boom"), r.animations.play("boom", 7, !1), e.sprite.destroy(), this.pig_destroyed.play(), setTimeout(function() {
                     r.destroy()
-                }, 500), this.game.global.destroy = !0) : (a = this.game.add.emitter(e.sprite.x - 20, e.sprite.y - 20, 100), a.makeParticles("shtepka"), this.game.physics.box2d.enable(a), a.gravity = 200, a.start(!0, 2e3, null, 30), e.sprite.destroy(), this.game.global.score += 100, this.game.scoreText.setText("Score: " + this.game.global.score), this.wood_destroyed.play(), setTimeout(function() {
+                }, 500), this.game.global.destroy = !0) : (a = this.game.add.emitter(e.sprite.x - 20, e.sprite.y - 20, 100), a.makeParticles("shtepka"), this.game.physics.box2d.enable(a), a.gravity = 200, a.start(!0, 2e3, null, 30), e.sprite.destroy(), this.game.global.score += 100, this.game.scoreText.setText("€" + this.game.global.score), this.wood_destroyed.play(), setTimeout(function() {
                     a.destroy()
                 }, 1e3), this.game.global.destroy = !0);
             else if (s.normalImpulses[0] < 5 && s.normalImpulses[0] > 1)
-                if (e.sprite.hp > 3 && !this.game.global.destroy) "Creaters/Pig" === e.sprite.frameName.split("_")[0] || "Creaters/PigShit" === e.sprite.frameName.split("_")[0] ? (this.game.global.killedPigs += 1, this.game.global.score += 1e3, this.game.scoreText.setText("Score: " + this.game.global.score), r = this.game.add.sprite(e.sprite.x - 50, e.sprite.y - 50, "bang"), r.animations.add("boom"), r.animations.play("boom", 7, !1), e.sprite.destroy(), this.pig_destroyed.play(), setTimeout(function() {
+                if (e.sprite.hp > 3 && !this.game.global.destroy) "Creaters/Pig" === e.sprite.frameName.split("_")[0] || "Creaters/PigShit" === e.sprite.frameName.split("_")[0] ? (this.game.global.killedPigs += 1, this.game.global.score += 1e3, this.game.scoreText.setText("€" + this.game.global.score), r = this.game.add.sprite(e.sprite.x - 50, e.sprite.y - 50, "bang"), r.animations.add("boom"), r.animations.play("boom", 7, !1), e.sprite.destroy(), this.pig_destroyed.play(), setTimeout(function() {
                     r.destroy()
-                }, 500)) : (a = this.game.add.emitter(e.sprite.x - 20, e.sprite.y - 20, 100), a.makeParticles("shtepka"), this.game.physics.box2d.enable(a), a.gravity = 200, a.start(!0, 2e3, null, 30), e.sprite.destroy(), this.game.global.score += 100, this.game.scoreText.setText("Score: " + this.game.global.score), this.wood_destroyed.play(), setTimeout(function() {
+                }, 500)) : (a = this.game.add.emitter(e.sprite.x - 20, e.sprite.y - 20, 100), a.makeParticles("shtepka"), this.game.physics.box2d.enable(a), a.gravity = 200, a.start(!0, 2e3, null, 30), e.sprite.destroy(), this.game.global.score += 100, this.game.scoreText.setText("€" + this.game.global.score), this.wood_destroyed.play(), setTimeout(function() {
                     a.destroy()
                 }, 1e3));
                 else if (t.sprite.hp > 4) t.sprite.hp = 5;
@@ -23338,7 +23338,7 @@ function(module, exports, __webpack_require__) {
                 this.game.global.star = 0,
                 this.game.physics.startSystem(_phaser2["default"].Physics.BOX2D),
                 this.game.physics.box2d.setBoundsToWorld(),
-                this.game.world.setBounds(0, 0, 2048, 868),
+                this.game.world.setBounds(0, 0, 1800, 868),
                 this.levelData = JSON.parse(this.game.cache.getText("level")),
                 this.bgMusic = this.game.add.audio("bgAudio"),
                 this.bgMusic.volume = .2,
@@ -23352,10 +23352,10 @@ function(module, exports, __webpack_require__) {
                 this.pig_damage = this.game.add.audio("pig_damage"),
                 this.pig_destroyed = this.game.add.audio("pig_destroyed"),
                 this.sky = this.game.add.tileSprite(0, 0, 2048, 678, "sky"),
-                this.backgroundFon = this.game.add.tileSprite(0, this.game.height - 294, 2048, 204, "background"),
-                this.grass = this.game.add.tileSprite(0, this.game.height - 150, 2048, 59, "grass"),
-                this.ground = this.game.add.tileSprite(0, this.game.height + 5, 2048, 190, "ground"),
-                this.ground = this.game.add.tileSprite(1024, this.game.height + 5, 2048, 190, "ground"),
+                this.backgroundFon = this.game.add.tileSprite(0, this.game.height - 358, 2048, 268, "background"),
+                this.grass = this.game.add.tileSprite(0, this.game.height - 203, 1900, 114, "grass"),
+                this.ground = this.game.add.tileSprite(0, this.game.height + 5, 3100, 190, "ground"),
+//                this.ground = this.game.add.tileSprite(1024, this.game.height + 5, 1800, 190, "ground"),
                 this.catapult = this.game.add.sprite(200, this.game.height - 290, "aBirds", "Creaters/Stick_1.png"),
                 this.line = this.game.add.bitmapData(320, 800),
                 this.lineSprite = this.game.add.sprite(0, 0, this.line),
@@ -23407,7 +23407,18 @@ function(module, exports, __webpack_require__) {
                     this.callbackID = this.game.input.addMoveCallback(moveCameraDragCB, this),
                     this.game.input.onUp.add(mouseDragEnd, this);
                 for (var i = 0; i < targetGroup.children.length; i++) targetGroup.children[i].body.setCollisionCategory(2), targetGroup.children[i].hp = 1;
-                this.bird.body.setCategoryPostsolveCallback(2, impulseCallback, this), this.bird.body.setCategoryContactCallback(2, targetCallback, this), this.bird.body.setBodyContactCallback(this.ground, worldCallback, this), this.ground.body.setCategoryPostsolveCallback(2, cal, this), this.game.camera.y = 768, this.game.scoreText = this.game.add.bitmapText(50, 5, "bmtFont"), this.game.scoreText.fixedToCamera = !0, this.game.scoreText.setText("Score: " + this.game.global.score), this.game.scoreText.scale.set(1.5), this.foreground = this.game.add.tileSprite(0, this.game.height - 120, 2048, 34, "foreground"), this.game.global.shutFlag = !1, setTimeout(function(t) {
+                this.bird.body.setCategoryPostsolveCallback(2, impulseCallback, this),
+                    this.bird.body.setCategoryContactCallback(2, targetCallback, this),
+                    this.bird.body.setBodyContactCallback(this.ground, worldCallback, this),
+                    this.ground.body.setCategoryPostsolveCallback(2, cal, this),
+                    this.game.camera.y = 768,
+                    this.game.scoreText = this.game.add.bitmapText(50, 5, "bmtFont"),
+                    this.game.scoreText.fixedToCamera = !0,
+                    this.game.scoreText.setText("€" + this.game.global.score),
+                    this.game.scoreText.scale.set(1.5),
+                    this.foreground = this.game.add.tileSprite(0, this.game.height - 120, 2048, 34, "foreground"),
+                    this.game.global.shutFlag = !1,
+                    setTimeout(function(t) {
                     t.game.add.tween(t.game.camera).to({
                         x: 524
                     }, 500, _phaser2["default"].Easing.Linear.None, !0)
@@ -23425,7 +23436,18 @@ function(module, exports, __webpack_require__) {
             }
         },
         update: function() {
-            this.game.global.globTime++, this.game.global.resetbirdFlag && this.birdsGroup.children.length > 0 && (this.game.camera.follow(null), this.game.global.targetFlag = !1, this.game.global.resetbirdFlag = !1, setTimeout(resetBird, 5e3, this), setTimeout(func, 5500, this)), void 0 !== this.grass && (this.game.global.killedPigs === this.game.global.pigs && this.game.global.gameOverFlag && this.game.global.shutFlag && (this.game.global.gameOverFlag = !1, this.clear_military.play(), this.game.state.start("win", !1, !0)), this.game.global.killedPigs < this.game.global.pigs && 0 === this.birdsGroup.children.length && this.game.global.gameOverFlag && (this.game.global.gameOverFlag = !1, this.clear_military.play(), this.game.state.start("win", !1, !0)), !this.game.global.resetbirdFlag && this.game.global.trajectory && this.bird.body.x > 200 && this.game.global.globTime % 3 === 1 && (this.game.global.globTime % 2 === 0 ? (this.trajectoryBird = this.game.add.sprite(this.bird.body.sprite.x - 30, this.bird.body.sprite.y, "trajectory1"), this.game.global.trajectoryArr.push(this.trajectoryBird)) : this.trajectoryBird = this.game.add.sprite(this.bird.body.sprite.x - 30, this.bird.body.sprite.y, "trajectory2"), this.game.global.trajectoryArr.push(this.trajectoryBird)), this.camera.x > 0 && this.camera.x < 1024 && this.bird.y < 562 && (this.grass.tilePosition.x = -this.camera.x / 5, this.backgroundFon.tilePosition.x = -this.camera.x / 8, this.sky.tilePosition.x = this.camera.x / 10))
+            this.game.global.globTime++,
+            this.game.global.resetbirdFlag && this.birdsGroup.children.length > 0 && (this.game.camera.follow(null),
+                this.game.global.targetFlag = !1,
+                this.game.global.resetbirdFlag = !1,
+                setTimeout(resetBird, 5e3, this),
+                setTimeout(func, 5500, this)),
+                void 0 !== this.grass && (this.game.global.killedPigs === this.game.global.pigs && this.game.global.gameOverFlag && this.game.global.shutFlag && (this.game.global.gameOverFlag = !1, this.clear_military.play(), this.game.state.start("win", !1, !0)), this.game.global.killedPigs < this.game.global.pigs && 0 === this.birdsGroup.children.length && this.game.global.gameOverFlag && (this.game.global.gameOverFlag = !1, this.clear_military.play(), this.game.state.start("win", !1, !0)),
+                    !this.game.global.resetbirdFlag && this.game.global.trajectory && this.bird.body.x > 200 && this.game.global.globTime % 3 === 1 && (this.game.global.globTime % 2 === 0 ? (this.trajectoryBird = this.game.add.sprite(this.bird.body.sprite.x - 30, this.bird.body.sprite.y, "trajectory1"), this.game.global.trajectoryArr.push(this.trajectoryBird)) : this.trajectoryBird = this.game.add.sprite(this.bird.body.sprite.x - 30, this.bird.body.sprite.y, "trajectory2"), this.game.global.trajectoryArr.push(this.trajectoryBird)),
+                    this.camera.x > 0 && this.camera.x < 1024 && this.bird.y < 562
+                        && (this.grass.tilePosition.x = -this.camera.x / 5,
+                            this.backgroundFon.tilePosition.x = -this.camera.x / 8,
+                            this.sky.tilePosition.x = this.camera.x / 10))
         }
     }
 },
