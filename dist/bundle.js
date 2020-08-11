@@ -23042,7 +23042,7 @@ function(t, e) {
                 this.game.load.bitmapFont("bmtFont", "./assets/font/Font_angry_birds.png", "././assets/font/Font_angry_birds.xml")
         },
         create: function() {
-            this.game.loadScreen = this.game.add.sprite(102, 163, "tweet"),
+            this.game.loadScreen = this.game.add.sprite(142, 163, "tweet"),
                 this.game.load.onLoadStart.add(this.loadStart, this),
                 this.game.load.onFileComplete.add(this.fileComplete, this),
                 this.game.load.onLoadComplete.add(this.loadComplete, this),
@@ -23139,7 +23139,7 @@ function(t, e, i) {
         create: function() {
             var t = this;
             this.game.world.setBounds(0, 0, 1024, 768),
-            this.buttonLevel0 = this.game.add.sprite(102, 163, "tweet"),
+            this.buttonLevel0 = this.game.add.sprite(142, 163, "tweet"),
             this.buttonLevel0.inputEnabled = !0,
             this.buttonLevel0.input.useHandCursor = !0,
             this.buttonLevel0.events.onInputDown.add(n, t),
