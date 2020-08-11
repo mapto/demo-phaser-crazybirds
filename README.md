@@ -10,22 +10,15 @@ More detailed documentation of this cocnept is available in Bulgarian in the [dr
 
 The implementation is based on [Phaser Demo Game - Crazy Birds](https://github.com/nixsolutions/demo-phaser-crazybirds) by nixsolutions. This was motivated by the fact that in the [package.json](https://github.com/nixsolutions/demo-phaser-crazybirds/blob/master/package.json) file, the [Internet Software Consortium license](https://en.wikipedia.org/wiki/ISC_license) was indicated. Just later I noticed that the code is minifies/obfuscared into the dist/ directory. I decided that this obfuscation is not a problem for a simple reskinning with some minor feature improvements.
 
-Setup
------
+Running Locally
+---------------
 
-The game is work in progress, but is already playable. Because of this, it is not published online yet, but you can play it by following this sequence:
+The game is work in progress, but is already playable. Because of this, it is not published online yet, but you can play it by following this sequence (git and npm are required to be installed):
 
-1. Download:
-
-    git clone https://github.com/mapto/boykomet
-
-2. Configure:
-
-    npm install
-
-3. Start
-
-    grunt
+    git clone https://github.com/mapto/boykomet  # download project
+    cd boykomet                                  # enter source directory
+    npm install                                  # install dependencies
+    grunt                                        # start locally
 
 This should start a new browser window with the game.
 
