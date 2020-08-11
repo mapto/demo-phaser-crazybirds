@@ -13,7 +13,7 @@ The implementation is based on [Phaser Demo Game - Crazy Birds](https://github.c
 Running Locally
 ---------------
 
-The game is work in progress, but is already playable. Because of this, it is not published online yet, but you can play it by following this sequence:
+The game is work in progress, but is already playable. Because of this, it is not published online yet, but you can play it by following this sequence (git and npm are required to be installed):
 
     git clone https://github.com/mapto/boykomet  # download project
     cd boykomet                                  # enter source directory
