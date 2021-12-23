@@ -13,8 +13,7 @@
 
     var i = {};
     return e.m = t, e.c = i, e.p = "./dist/", e(0)
-}
-([
+}([
 function(t, e, i) {
     i(1), t.exports = i(298)
 },
@@ -987,7 +986,7 @@ function(t, e, i) {
     var o = i(4).parseInt,
         n = i(83).trim,
         s = i(84),
-        r = /^[\-+]?0[xX]/;
+        r = /^[-+]?0[xX]/;
     t.exports = 8 !== o(s + "08") || 22 !== o(s + "0x16") ? function(t, e) {
         var i = n(String(t), 3);
         return o(i, e >>> 0 || (r.test(i) ? 16 : 10))
@@ -14762,7 +14761,7 @@ function(t, e, i) {
                     }
                 }, Object.defineProperty(n.BitmapData.prototype, "smoothed", {
                     get: function() {
-                        n.Canvas.getSmoothingEnabled(this.context)
+                        return n.Canvas.getSmoothingEnabled(this.context)
                     },
                     set: function(t) {
                         n.Canvas.setSmoothingEnabled(this.context, t)
@@ -17367,18 +17366,18 @@ function(t, e, i) {
                     }
                 }), Object.defineProperty(n.AnimationManager.prototype, "name", {
                     get: function() {
-                        if (this.currentAnim) return this.currentAnim.name
+                        return this.currentAnim ? this.currentAnim.name : null
                     }
                 }), Object.defineProperty(n.AnimationManager.prototype, "frame", {
                     get: function() {
-                        if (this.currentFrame) return this.currentFrame.index
+                        return this.currentFrame ? this.currentFrame.index : null
                     },
                     set: function(t) {
                         "number" == typeof t && this._frameData && null !== this._frameData.getFrame(t) && (this.currentFrame = this._frameData.getFrame(t), this.currentFrame && this.sprite.setFrame(this.currentFrame))
                     }
                 }), Object.defineProperty(n.AnimationManager.prototype, "frameName", {
                     get: function() {
-                        if (this.currentFrame) return this.currentFrame.name
+                        return this.currentFrame ? this.currentFrame.name : null
                     },
                     set: function(t) {
                         "string" == typeof t && this._frameData && null !== this._frameData.getFrameByName(t) ? (this.currentFrame = this._frameData.getFrameByName(t), this.currentFrame && (this._frameIndex = this.currentFrame.index, this.sprite.setFrame(this.currentFrame))) : console.warn("Cannot set frameName: " + t)
@@ -19773,12 +19772,12 @@ function(t, e, i) {
                     createCustomLayer: function(t, e, i, o) {
                         void 0 === o && (o = !0), this.customWidth = t, this.customHeight = e, this.boundsCustom.width = t, this.boundsCustom.height = e;
                         var s = new n.FlexLayer(this, this.positionCustom, this.boundsCustom, this.scaleCustom);
-                        return o && this.game.world.add(s), this.layers.push(s), "undefined" != typeof i && null !== typeof i && s.addMultiple(i), s
+                        return o && this.game.world.add(s), this.layers.push(s), "undefined" != typeof i && s.addMultiple(i), s
                     },
                     createFluidLayer: function(t, e) {
                         void 0 === e && (e = !0);
                         var i = new n.FlexLayer(this, this.positionFluid, this.boundsFluid, this.scaleFluid);
-                        return e && this.game.world.add(i), this.layers.push(i), "undefined" != typeof t && null !== typeof t && i.addMultiple(t), i
+                        return e && this.game.world.add(i), this.layers.push(i), "undefined" != typeof t && i.addMultiple(t), i
                     },
                     createFullLayer: function(t) {
                         var e = new n.FlexLayer(this, this.positionFull, this.boundsFull, this.scaleFluid);

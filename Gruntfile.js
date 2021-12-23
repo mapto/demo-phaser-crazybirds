@@ -1,17 +1,8 @@
 module.exports = function(grunt) {
 
   grunt.initConfig({
-    jshint: {
-      files: ['Gruntfile.js', 'src/**/*.js', 'test/**/*.js'],
-      options: {
-        globals: {
-          jQuery: true
-        }
-      }
-    },
-    watch: {
-      files: ['.', '<%= jshint.files %>'],
-      tasks: ['jshint']
+    eslint: {
+      target: ['dist/bundle.js'],
     },
     connect: {
         server: {
@@ -26,16 +17,12 @@ module.exports = function(grunt) {
         }
 	});
 
+  grunt.loadNpmTasks('grunt-eslint');
   grunt.loadNpmTasks('grunt-contrib-connect');
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-watch');
 
-  grunt.registerTask('development', [
-    'jshint',
-    // 'watch',
-  	'connect:server',
+  grunt.registerTask('default', [
+    'eslint',
+    'connect:server',
   ]);
-
-  grunt.registerTask('default', ['development']);
 
 };
