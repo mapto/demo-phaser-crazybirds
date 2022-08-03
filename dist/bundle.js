@@ -23422,7 +23422,7 @@ function(module, exports, __webpack_require__) {
                         x: 0
                     }, 500, _phaser2["default"].Easing.Linear.None, !0)
                 }, 3e3, this),
-                this.game.copyrightText = this.game.add.text(this.game.width / 2, this.game.height - 15, "Graphics by Rovio Entertainment Ltd.", {
+                this.game.copyrightText = this.game.add.text(this.game.width / 2, this.game.height - 15, "Some Graphics by Rovio Entertainment Ltd. Remaining", {
                     font: "Ubuntu",
                     fontSize: "12px",
                     fill: "#ffffff",
@@ -30241,7 +30241,7 @@ function(t, e, i) {
                 this.game.global.currentLevel += 1,
                 this.game.global.levels.splice(this.game.global.currentLevel, 1, 0)
             ) : (this.game.scoreTextWin.setText("Game Over"), this.forwardPopup.visible = !1),
-            this.game.copyrightText = this.game.add.text(this.game.width / 2, this.game.height - 15, "Graphics by Rovio Entertainment Ltd.", {
+            this.game.copyrightText = this.game.add.text(this.game.width / 2, this.game.height - 15, "Some Graphics by Rovio Entertainment Ltd. Remaining", {
                 font: "Ubuntu",
                 fontSize: "12px",
                 fill: "#ffffff",
