@@ -52,21 +52,17 @@ Technologies
 1. Remove any use of copyrighted material
 
     1. Remove counter (to remove use of font face)
-
     2. Rework [sprite map](https://github.com/mapto/boykomet/blob/master/assets/BirdAngry.png) to remove original images
+    3. Change (or temporarily remove) sound and music
 
 2. Create a branch for Radevmet, reworking the [sprite map](https://github.com/mapto/boykomet/blob/master/assets/BirdAngry.png) where:
 
     1. Instead of Boyko Borissov, the birds are Rumen Radev
-
     2. Instead of Ursula von der Leyen, the pigs are Vladimir Putin
-
     3. Instead of the Bundestag, the bricks are from Kremlin
 
 3. Create a branch for Shishimet, reworking the [sprite map](https://github.com/mapto/boykomet/blob/master/assets/BirdAngry.png) where:
 
     1. Instead of Boyko Borissov, the birds are Delyan Peevski
-    
     2. Instead of Ursula von der Leyen, the pigs are Recep Erdogan
-    
     3. Instead of the Bundestag, the bricks are from Ayasofya
